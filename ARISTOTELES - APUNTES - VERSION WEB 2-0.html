@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aristóteles · Filosofía Clásica Griega · Edición Completa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5efe1;
+    --bg-alt:#ebe2cf;
+    --ink:#2d2418;
+    --ink-soft:#5a4a35;
+    --terracotta:#b85c3c;
+    --terracotta-dark:#8c3f25;
+    --aegean:#2c5f7c;
+    --aegean-dark:#1d4257;
+    --gold:#c9a961;
+    --gold-light:#e4d29a;
+    --olive:#6b7a3a;
+    --parchment:#faf6ea;
+    --shadow: 0 10px 30px rgba(45,36,24,.12);
+    --shadow-lg: 0 20px 50px rgba(45,36,24,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Cinzel',serif;font-weight:600;letter-spacing:.5px;color:var(--ink)}
+  .serif{font-family:'Cormorant Garamond',serif}
+  .greek{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--terracotta-dark)}
+
+  /* ====== HERO ====== */
+  .hero{
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse at top, rgba(201,169,97,.15), transparent 60%),
+      linear-gradient(180deg, #e8dcc0 0%, var(--bg) 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    padding:4rem 2rem;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0 60px, rgba(184,92,60,.04) 60px 61px);
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:1100px;
+    text-align:center;
+    position:relative;
+    z-index:2;
+  }
+  .hero .eyebrow{
+    font-family:'Cinzel',serif;
+    font-size:.85rem;
+    letter-spacing:6px;
+    color:var(--terracotta);
+    text-transform:uppercase;
+    margin-bottom:1.5rem;
+  }
+  .hero h1{
+    font-size:clamp(3rem, 8vw, 6rem);
+    line-height:1;
+    margin-bottom:1rem;
+    background:linear-gradient(180deg, var(--ink) 0%, var(--terracotta-dark) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero .subtitle{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:clamp(1.2rem, 2.5vw, 1.8rem);
+    color:var(--ink-soft);
+    max-width:700px;
+    margin:0 auto 2rem;
+  }
+  .hero .dates{
+    font-family:'Cinzel',serif;
+    color:var(--aegean);
+    letter-spacing:3px;
+    font-size:1rem;
+    margin-bottom:3rem;
+  }
+  .hero-ornament{
+    display:flex;align-items:center;justify-content:center;gap:1rem;margin:2rem 0;
+  }
+  .hero-ornament .line{height:1px;width:80px;background:var(--gold)}
+  .hero-ornament .dot{width:8px;height:8px;background:var(--gold);border-radius:50%}
+  .hero-quote{
+    max-width:700px;margin:2rem auto 0;
+    padding:1.5rem 2rem;
+    border-top:1px solid var(--gold);
+    border-bottom:1px solid var(--gold);
+  }
+  .hero-quote .gr{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:var(--terracotta-dark);display:block;margin-bottom:.5rem}
+  .hero-quote .es{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ink-soft)}
+
+  /* ====== NAV ====== */
+  .nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(245,239,225,.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(184,92,60,.2);
+    padding:.8rem 2rem;
+  }
+  .nav-inner{
+    max-width:1300px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    flex-wrap:wrap;
+  }
+  .nav-brand{font-family:'Cinzel',serif;color:var(--terracotta);font-weight:700;letter-spacing:2px;font-size:.95rem}
+  .nav-links{display:flex;gap:.3rem;flex-wrap:wrap}
+  .nav-links a{
+    font-size:.78rem;
+    color:var(--ink-soft);
+    text-decoration:none;
+    padding:.4rem .7rem;
+    border-radius:20px;
+    transition:all .3s;
+    font-weight:500;
+    letter-spacing:.5px;
+  }
+  .nav-links a:hover{background:var(--terracotta);color:var(--parchment)}
+
+  /* ====== SECTIONS ====== */
+  section{padding:5rem 2rem;position:relative}
+  .container{max-width:1200px;margin:0 auto}
+  .section-header{
+    text-align:center;margin-bottom:4rem;
+  }
+  .section-number{
+    font-family:'Cinzel',serif;
+    font-size:.85rem;
+    letter-spacing:5px;
+    color:var(--gold);
+    display:block;margin-bottom:1rem;
+  }
+  .section-header h2{
+    font-size:clamp(2rem, 4vw, 3rem);
+    margin-bottom:1rem;
+    position:relative;display:inline-block;
+  }
+  .section-header h2::after{
+    content:"";position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);
+    width:60px;height:3px;background:var(--terracotta);
+  }
+  .section-header p{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--ink-soft);
+    max-width:700px;margin:1.5rem auto 0;
+  }
+
+  /* ====== CARDS ====== */
+  .card{
+    background:var(--parchment);
+    border-radius:12px;
+    padding:2rem;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(201,169,97,.3);
+    transition:transform .3s, box-shadow .3s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+  .card h3{
+    font-size:1.3rem;margin-bottom:1rem;color:var(--terracotta-dark);
+    display:flex;align-items:center;gap:.6rem;
+  }
+  .card h3 .icon{
+    width:32px;height:32px;background:var(--gold-light);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Cinzel',serif;color:var(--terracotta-dark);font-size:.9rem;
+  }
+
+  /* ====== TIMELINE ====== */
+  .timeline{
+    position:relative;
+    max-width:900px;margin:0 auto;
+    padding:2rem 0;
+  }
+  .timeline::before{
+    content:"";position:absolute;left:50%;top:0;bottom:0;
+    width:2px;background:linear-gradient(180deg, var(--gold), var(--terracotta), var(--aegean));
+    transform:translateX(-50%);
+  }
+  .tl-item{
+    position:relative;width:50%;padding:1.5rem 2.5rem;
+  }
+  .tl-item:nth-child(odd){left:0;text-align:right}
+  .tl-item:nth-child(even){left:50%}
+  .tl-item::before{
+    content:"";position:absolute;top:2rem;
+    width:16px;height:16px;background:var(--terracotta);
+    border:3px solid var(--parchment);border-radius:50%;
+    box-shadow:0 0 0 2px var(--terracotta);
+  }
+  .tl-item:nth-child(odd)::before{right:-8px}
+  .tl-item:nth-child(even)::before{left:-8px}
+  .tl-year{
+    font-family:'Cinzel',serif;color:var(--aegean);
+    font-size:1.1rem;font-weight:700;margin-bottom:.3rem;
+  }
+  .tl-title{font-weight:600;color:var(--terracotta-dark);margin-bottom:.3rem}
+  .tl-text{font-size:.95rem;color:var(--ink-soft)}
+
+  /* ====== WORKS TIMELINE (HORIZONTAL) ====== */
+  .works-timeline{
+    position:relative;
+    padding:3rem 0;
+    margin:2rem 0;
+    overflow-x:auto;
+  }
+  .works-timeline::before{
+    content:"";position:absolute;left:0;right:0;top:50%;
+    height:3px;
+    background:linear-gradient(90deg, var(--aegean), var(--terracotta), var(--olive));
+  }
+  .works-periods{
+    display:flex;
+    gap:2rem;
+    min-width:100%;
+    padding:0 2rem;
+  }
+  .period{
+    flex:1;
+    min-width:300px;
+    background:var(--parchment);
+    border-radius:12px;
+    padding:2rem;
+    box-shadow:var(--shadow);
+    position:relative;
+    border-top:4px solid var(--terracotta);
+  }
+  .period.p1{border-top-color:var(--aegean)}
+  .period.p2{border-top-color:var(--terracotta)}
+  .period.p3{border-top-color:var(--olive)}
+  .period h4{
+    color:var(--terracotta-dark);
+    margin-bottom:.3rem;font-size:1.15rem;
+  }
+  .period .years{
+    font-family:'Cinzel',serif;
+    color:var(--aegean);
+    font-size:.85rem;letter-spacing:2px;
+    margin-bottom:1rem;
+  }
+  .period ul{list-style:none;padding:0}
+  .period li{
+    padding:.5rem 0;
+    border-bottom:1px dashed rgba(201,169,97,.3);
+    font-size:.9rem;
+  }
+  .period li:last-child{border-bottom:none}
+  .period li strong{color:var(--terracotta-dark)}
+  .period li em{color:var(--ink-soft);font-size:.85rem;display:block;margin-top:.2rem}
+
+  /* ====== COMPARISON TABLE ====== */
+  .compare{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    background:var(--parchment);border-radius:12px;overflow:hidden;
+    box-shadow:var(--shadow);margin:2rem 0;
+  }
+  .compare-head{
+    padding:1.5rem;text-align:center;
+    font-family:'Cinzel',serif;font-size:1.2rem;
+    color:var(--parchment);letter-spacing:2px;
+  }
+  .compare-head.plato{background:linear-gradient(135deg, var(--aegean), var(--aegean-dark))}
+  .compare-head.arist{background:linear-gradient(135deg, var(--terracotta), var(--terracotta-dark))}
+  .compare-row{
+    padding:1.2rem 1.5rem;border-bottom:1px solid rgba(201,169,97,.3);
+    display:grid;grid-template-columns:1fr 1fr;
+  }
+  .compare-row:last-child{border-bottom:none}
+  .compare-row .label{
+    font-family:'Cinzel',serif;color:var(--gold);
+    font-size:.8rem;letter-spacing:2px;text-transform:uppercase;
+    grid-column:1/-1;margin-bottom:.5rem;
+  }
+  .compare-row .cell{padding:0 .5rem;font-size:.95rem;color:var(--ink)}
+
+  /* ====== FOUR CAUSES ====== */
+  .causes-grid{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:1.5rem;margin:2rem 0;
+  }
+  .cause-card{
+    background:var(--parchment);
+    border-radius:12px;padding:1.8rem;
+    border-top:4px solid var(--terracotta);
+    box-shadow:var(--shadow);
+    transition:all .3s;
+    position:relative;overflow:hidden;
+  }
+  .cause-card::before{
+    content:"";position:absolute;top:0;right:0;
+    width:100px;height:100px;
+    background:radial-gradient(circle, rgba(201,169,97,.2), transparent 70%);
+  }
+  .cause-card:hover{transform:translateY(-6px) rotate(-1deg)}
+  .cause-card .num{
+    font-family:'Cinzel',serif;font-size:3rem;
+    color:var(--gold-light);line-height:1;margin-bottom:.5rem;
+  }
+  .cause-card h4{color:var(--terracotta-dark);margin-bottom:.8rem;font-size:1.2rem}
+  .cause-card .gr{font-style:italic;color:var(--aegean);font-size:.9rem;margin-bottom:.8rem;display:block}
+  .cause-card p{font-size:.92rem;color:var(--ink-soft)}
+
+  /* ====== COSMOS DIAGRAM (ANIMATED) ====== */
+  .cosmos-wrap{
+    display:flex;justify-content:center;align-items:center;
+    padding:2rem;background:radial-gradient(circle, #1a1a2e 0%, #0a0a15 100%);
+    border-radius:16px;margin:2rem 0;
+    box-shadow:var(--shadow-lg);
+    position:relative;overflow:hidden;
+  }
+  .cosmos-svg{max-width:100%;height:auto}
+  .cosmos-svg .sphere{
+    transform-origin:250px 250px;
+    animation:rotateSphere 60s linear infinite;
+  }
+  .cosmos-svg .sphere.s1{animation-duration:40s}
+  .cosmos-svg .sphere.s2{animation-duration:55s;animation-direction:reverse}
+  .cosmos-svg .sphere.s3{animation-duration:70s}
+  .cosmos-svg .sphere.s4{animation-duration:85s;animation-direction:reverse}
+  .cosmos-svg .sphere.s5{animation-duration:100s}
+  .cosmos-svg .sphere.s6{animation-duration:120s;animation-direction:reverse}
+  .cosmos-svg .stars{
+    transform-origin:250px 250px;
+    animation:rotateSphere 200s linear infinite;
+  }
+  @keyframes rotateSphere{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+  }
+  .cosmos-svg .planet{
+    animation:orbit 20s linear infinite;
+    transform-origin:250px 250px;
+  }
+  .cosmos-svg .planet.p2{animation-duration:30s}
+  .cosmos-svg .planet.p3{animation-duration:45s}
+  @keyframes orbit{
+    from{transform:rotate(0deg) translateX(0)}
+    to{transform:rotate(360deg) translateX(0)}
+  }
+
+  /* ====== KNOWLEDGE PROCESS ====== */
+  .process{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:1rem;margin:2rem 0;
+    position:relative;
+  }
+  .process-step{
+    background:var(--parchment);
+    padding:1.5rem;border-radius:12px;
+    box-shadow:var(--shadow);
+    position:relative;
+    border-left:4px solid var(--aegean);
+  }
+  .process-step .step-num{
+    position:absolute;top:-15px;left:-15px;
+    width:40px;height:40px;border-radius:50%;
+    background:var(--terracotta);color:var(--parchment);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cinzel',serif;font-weight:700;
+    box-shadow:0 4px 10px rgba(184,92,60,.4);
+  }
+  .process-step h4{color:var(--aegean-dark);margin-bottom:.5rem;font-size:1.05rem}
+  .process-step .gr{font-style:italic;color:var(--terracotta);font-size:.85rem;display:block;margin-bottom:.5rem}
+  .process-step p{font-size:.88rem;color:var(--ink-soft)}
+
+  /* ====== SOUL HIERARCHY ====== */
+  .soul-pyramid{
+    max-width:600px;margin:2rem auto;
+    display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  }
+  .soul-level{
+    padding:1.2rem 2rem;
+    background:var(--parchment);
+    border-radius:8px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    border:2px solid var(--gold);
+    transition:all .3s;
+  }
+  .soul-level:hover{transform:scale(1.03);border-color:var(--terracotta)}
+  .soul-level.l1{width:100%;background:linear-gradient(135deg, var(--olive), #4a5528);color:var(--parchment);border-color:var(--olive)}
+  .soul-level.l2{width:75%;background:linear-gradient(135deg, var(--aegean), var(--aegean-dark));color:var(--parchment);border-color:var(--aegean)}
+  .soul-level.l3{width:50%;background:linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));color:var(--parchment);border-color:var(--terracotta)}
+  .soul-level h4{color:inherit;font-size:1.1rem;margin-bottom:.3rem}
+  .soul-level small{opacity:.85;font-size:.85rem}
+
+  /* ====== VIRTUES ====== */
+  .virtues-grid{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:1.5rem;margin:2rem 0;
+  }
+  .virtue-card{
+    background:var(--parchment);padding:1.8rem;border-radius:12px;
+    box-shadow:var(--shadow);
+    border-left:4px solid var(--gold);
+  }
+  .virtue-card h4{color:var(--terracotta-dark);margin-bottom:.8rem}
+  .virtue-card .gr{font-style:italic;color:var(--aegean);font-size:.9rem;display:block;margin-bottom:.8rem}
+  .virtue-card ul{list-style:none;padding:0}
+  .virtue-card li{padding:.3rem 0;font-size:.92rem;color:var(--ink-soft);border-bottom:1px dashed rgba(201,169,97,.3)}
+  .virtue-card li:last-child{border-bottom:none}
+
+  /* ====== GOVERNMENTS TABLE ====== */
+  .gov-table{
+    width:100%;border-collapse:collapse;
+    background:var(--parchment);border-radius:12px;overflow:hidden;
+    box-shadow:var(--shadow);margin:2rem 0;
+  }
+  .gov-table thead{background:linear-gradient(135deg, var(--terracotta), var(--terracotta-dark));color:var(--parchment)}
+  .gov-table th{
+    padding:1rem;font-family:'Cinzel',serif;letter-spacing:2px;font-size:.85rem;
+    text-align:left;
+  }
+  .gov-table td{padding:1rem;border-bottom:1px solid rgba(201,169,97,.3);font-size:.92rem;vertical-align:top}
+  .gov-table tr:last-child td{border-bottom:none}
+  .gov-table tr:hover{background:rgba(201,169,97,.1)}
+  .gov-table .good{color:var(--olive);font-weight:600}
+  .gov-table .bad{color:var(--terracotta-dark);font-weight:600}
+
+  /* ====== BILINGUAL QUOTES ====== */
+  .quote-block{
+    background:linear-gradient(135deg, var(--parchment), var(--bg-alt));
+    border-radius:12px;padding:2.5rem;margin:2.5rem 0;
+    position:relative;
+    border:1px solid var(--gold);
+    box-shadow:var(--shadow);
+  }
+  .quote-block::before{
+    content:"\201C";
+    position:absolute;top:-20px;left:20px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:6rem;color:var(--gold);line-height:1;
+  }
+  .quote-block .gr{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-size:1.4rem;
+    color:var(--terracotta-dark);
+    margin-bottom:1rem;display:block;
+    padding-left:1rem;border-left:3px solid var(--gold);
+  }
+  .quote-block .es{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.15rem;color:var(--ink);
+    padding-left:1rem;
+  }
+  .quote-block .ref{
+    display:block;margin-top:1rem;
+    font-family:'Cinzel',serif;font-size:.8rem;
+    color:var(--aegean);letter-spacing:2px;text-align:right;
+  }
+
+  /* ====== WORKS GRID ====== */
+  .works-grid{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:1rem;margin:2rem 0;
+  }
+  .work-chip{
+    background:var(--parchment);
+    padding:1rem;border-radius:8px;
+    text-align:center;font-family:'Cinzel',serif;
+    font-size:.9rem;color:var(--aegean-dark);
+    border:1px solid var(--gold);
+    transition:all .3s;cursor:default;
+  }
+  .work-chip:hover{background:var(--aegean);color:var(--parchment);transform:scale(1.05)}
+  .work-chip small{display:block;font-family:'Inter',sans-serif;font-size:.75rem;color:var(--ink-soft);margin-top:.3rem;font-style:italic}
+  .work-chip:hover small{color:var(--gold-light)}
+
+  /* ====== CONCEPT MAP ====== */
+  .concept-map-wrap{
+    background:var(--parchment);
+    border-radius:16px;
+    padding:2rem;
+    box-shadow:var(--shadow);
+    margin:2rem 0;
+    overflow-x:auto;
+  }
+  .concept-map{
+    display:block;
+    margin:0 auto;
+    max-width:100%;
+    height:auto;
+  }
+  .concept-map .node{
+    cursor:pointer;
+    transition:all .3s;
+  }
+  .concept-map .node:hover{
+    filter:brightness(1.1);
+  }
+  .concept-map .node circle{
+    transition:all .3s;
+  }
+  .concept-map .node:hover circle{
+    stroke-width:4;
+    stroke:var(--terracotta);
+  }
+  .concept-map .link{
+    stroke:var(--gold);
+    stroke-width:2;
+    fill:none;
+    opacity:.6;
+    transition:all .3s;
+  }
+  .concept-map .link:hover{
+    opacity:1;
+    stroke:var(--terracotta);
+    stroke-width:3;
+  }
+  .concept-map text{
+    font-family:'Cinzel',serif;
+    pointer-events:none;
+  }
+  .map-info{
+    background:var(--bg-alt);
+    border-radius:8px;
+    padding:1rem 1.5rem;
+    margin-top:1.5rem;
+    min-height:80px;
+    border-left:4px solid var(--terracotta);
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.05rem;
+    color:var(--ink);
+  }
+  .map-info .title{
+    font-family:'Cinzel',serif;
+    color:var(--terracotta-dark);
+    font-size:1.1rem;
+    margin-bottom:.3rem;
+  }
+
+  /* ====== INFLUENCE TIMELINE ====== */
+  .influence-grid{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:1.5rem;margin:2rem 0;
+  }
+  .influence-card{
+    background:var(--parchment);
+    border-radius:12px;
+    padding:1.8rem;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+    transition:all .3s;
+    border-left:4px solid var(--gold);
+  }
+  .influence-card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-lg);
+    border-left-color:var(--terracotta);
+  }
+  .influence-card .era{
+    font-family:'Cinzel',serif;
+    font-size:.75rem;
+    letter-spacing:2px;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:.5rem;
+  }
+  .influence-card h4{
+    color:var(--terracotta-dark);
+    margin-bottom:.8rem;
+    font-size:1.15rem;
+  }
+  .influence-card .period{
+    font-style:italic;
+    color:var(--aegean);
+    font-size:.85rem;
+    margin-bottom:1rem;
+    display:block;
+  }
+  .influence-card p{
+    font-size:.9rem;
+    color:var(--ink-soft);
+  }
+
+  /* ====== GLOSSARY ====== */
+  .glossary-grid{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:1rem;margin:2rem 0;
+  }
+  .glossary-card{
+    background:var(--parchment);
+    border-radius:10px;
+    padding:1.5rem;
+    box-shadow:var(--shadow);
+    border-top:3px solid var(--aegean);
+    transition:all .3s;
+  }
+  .glossary-card:hover{
+    transform:translateY(-4px);
+    border-top-color:var(--terracotta);
+  }
+  .glossary-card .term{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--terracotta-dark);
+    margin-bottom:.3rem;
+  }
+  .glossary-card .translit{
+    font-family:'Cinzel',serif;
+    font-size:.8rem;
+    color:var(--aegean);
+    letter-spacing:1px;
+    margin-bottom:.8rem;
+  }
+  .glossary-card .def{
+    font-size:.88rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+
+  /* ====== QUIZ ====== */
+  .quiz-container{
+    background:var(--parchment);
+    border-radius:16px;
+    padding:2.5rem;
+    box-shadow:var(--shadow);
+    margin:2rem 0;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .quiz-progress{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:2rem;
+    padding-bottom:1rem;
+    border-bottom:2px solid var(--gold-light);
+  }
+  .quiz-progress .q-num{
+    font-family:'Cinzel',serif;
+    color:var(--terracotta);
+    font-size:1rem;
+    letter-spacing:2px;
+  }
+  .quiz-progress .q-counter{
+    font-family:'Cinzel',serif;
+    color:var(--aegean);
+    font-size:.9rem;
+  }
+  .quiz-question{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.3rem;
+    color:var(--ink);
+    margin-bottom:1.5rem;
+    line-height:1.5;
+  }
+  .quiz-options{
+    display:flex;
+    flex-direction:column;
+    gap:.8rem;
+  }
+  .quiz-option{
+    background:var(--bg);
+    border:2px solid var(--gold-light);
+    border-radius:8px;
+    padding:1rem 1.2rem;
+    cursor:pointer;
+    transition:all .3s;
+    font-size:.95rem;
+    color:var(--ink);
+    text-align:left;
+    font-family:'Inter',sans-serif;
+  }
+  .quiz-option:hover{
+    border-color:var(--terracotta);
+    background:var(--bg-alt);
+    transform:translateX(4px);
+  }
+  .quiz-option.correct{
+    background:rgba(107,122,58,.2);
+    border-color:var(--olive);
+    color:var(--olive);
+    font-weight:600;
+  }
+  .quiz-option.wrong{
+    background:rgba(184,92,60,.15);
+    border-color:var(--terracotta);
+    color:var(--terracotta-dark);
+  }
+  .quiz-option.disabled{
+    cursor:default;
+    pointer-events:none;
+  }
+  .quiz-feedback{
+    margin-top:1.5rem;
+    padding:1rem 1.2rem;
+    border-radius:8px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.05rem;
+    display:none;
+  }
+  .quiz-feedback.show{display:block}
+  .quiz-feedback.correct{
+    background:rgba(107,122,58,.15);
+    border-left:4px solid var(--olive);
+    color:var(--olive);
+  }
+  .quiz-feedback.wrong{
+    background:rgba(184,92,60,.1);
+    border-left:4px solid var(--terracotta);
+    color:var(--terracotta-dark);
+  }
+  .quiz-nav{
+    display:flex;
+    justify-content:space-between;
+    margin-top:1.5rem;
+    gap:1rem;
+  }
+  .quiz-btn{
+    background:var(--terracotta);
+    color:var(--parchment);
+    border:none;
+    padding:.8rem 1.5rem;
+    border-radius:6px;
+    font-family:'Cinzel',serif;
+    font-size:.85rem;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:all .3s;
+  }
+  .quiz-btn:hover{background:var(--terracotta-dark);transform:translateY(-2px)}
+  .quiz-btn:disabled{opacity:.4;cursor:not-allowed}
+  .quiz-result{
+    text-align:center;
+    padding:2rem;
+  }
+  .quiz-result .score{
+    font-family:'Cinzel',serif;
+    font-size:3rem;
+    color:var(--terracotta);
+    margin:1rem 0;
+  }
+  .quiz-result .msg{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.3rem;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin-bottom:1.5rem;
+  }
+
+  /* ====== FOOTER ====== */
+  footer{
+    background:linear-gradient(180deg, var(--bg) 0%, #2d2418 100%);
+    color:var(--parchment);
+    padding:4rem 2rem 2rem;
+    text-align:center;
+  }
+  footer .ornament{
+    display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem;
+  }
+  footer .ornament .line{height:1px;width:100px;background:var(--gold)}
+  footer .ornament .dot{width:10px;height:10px;background:var(--gold);border-radius:50%}
+  footer h3{color:var(--gold);margin-bottom:1rem}
+  footer p{max-width:700px;margin:0 auto 1rem;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic}
+  footer .copy{margin-top:2rem;font-size:.8rem;opacity:.6;font-family:'Inter',sans-serif;font-style:normal}
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width:768px){
+    .timeline::before{left:20px}
+    .tl-item{width:100%;left:0!important;text-align:left!important;padding-left:3rem;padding-right:1rem}
+    .tl-item::before{left:12px!important;right:auto!important}
+    .compare{grid-template-columns:1fr}
+    .compare-row{grid-template-columns:1fr}
+    .nav-links{justify-content:center}
+    section{padding:3rem 1rem}
+    .works-periods{flex-direction:column}
+    .period{min-width:100%}
+  }
+
+  /* ====== ANIMATIONS ====== */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  .reveal{opacity:0;animation:fadeUp .8s ease forwards}
+  .reveal.visible{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Unidad 3 · Filosofía Clásica Griega · Edición Completa</div>
+    <h1>ARISTÓTELES</h1>
+    <div class="dates">384 — 322 a.C.</div>
+    <div class="hero-ornament">
+      <span class="line"></span><span class="dot"></span><span class="line"></span>
+    </div>
+    <p class="subtitle">«El segundo gran representante de la filosofía clásica griega, después de Platón. Su sistema representa la culminación de la filosofía antigua, integrando observación empírica con razonamiento abstracto.»</p>
+    <div class="hero-quote">
+      <span class="gr">Πάντες ἄνθρωποι τοῦ εἰδέναι ὀρέγονται φύσει.</span>
+      <span class="es">«Todos los hombres desean por naturaleza saber.»</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">ΑΡΙΣΤΟΤΕΛΗΣ</div>
+    <div class="nav-links">
+      <a href="#vida">Vida</a>
+      <a href="#obras">Obras</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#metafisica">Metafísica</a>
+      <a href="#conocimiento">Conocimiento</a>
+      <a href="#antropologia">Antropología</a>
+      <a href="#etica">Ética</a>
+      <a href="#politica">Política</a>
+      <a href="#influencia">Influencia</a>
+      <a href="#glosario">Glosario</a>
+      <a href="#quiz">Quiz</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ VIDA Y OBRA ============ -->
+<section id="vida">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">0 · BIOGRAPHIA</span>
+      <h2>Vida y Obra</h2>
+      <p>De Estagira al Liceo: el itinerario del filósofo que sistematizó el saber occidental.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">384 a.C.</div>
+        <div class="tl-title">Nacimiento en Estagira</div>
+        <div class="tl-text">Calcídica, bajo dominio macedonio. Su padre, Nicómaco, era médico de Filipo II —de ahí su vocación por las ciencias naturales.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">367 a.C.</div>
+        <div class="tl-title">Ingreso en la Academia</div>
+        <div class="tl-text">A los 17 años llega a Atenas y permanece 20 años junto a Platón, hasta la muerte del maestro (348/7 a.C.).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">347 – 335 a.C.</div>
+        <div class="tl-title">Exilio y viajes</div>
+        <div class="tl-text">Assos, Mitilene y Pella, donde educa a Alejandro Magno por invitación de Filipo II. Período de transición crítica.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">335 a.C.</div>
+        <div class="tl-title">Fundación del Liceo</div>
+        <div class="tl-text">Programa enciclopédico y empírico. Sus discípulos, los <em>peripatéticos</em>, paseaban por las galerías discutiendo.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">323 a.C.</div>
+        <div class="tl-title">Muerte de Alejandro</div>
+        <div class="tl-text">Estallido antimacedonio en Atenas. Aristóteles huye diciendo que no permitiría a los atenienses «pecar dos veces contra la filosofía» (alusión a Sócrates).</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">322 a.C.</div>
+        <div class="tl-title">Muerte en Calcis</div>
+        <div class="tl-text">En una propiedad de su madre. Fin de una era: la <em>polis</em> democrática se disuelve bajo el imperialismo macedonio.</div>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <span class="gr">Πλάτων φίλος, ἀλλ' ἀλήθεια φίλιον.</span>
+      <span class="es">«Platón es amigo, pero la verdad es más amiga.»</span>
+      <span class="ref">— Atribuida a Aristóteles · Ética a Nicómaco I, 4</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OBRAS POR PERÍODOS ============ -->
+<section id="obras" style="background:linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">0.1 · CORPUS ARISTOTELICUM</span>
+      <h2>Las obras por períodos</h2>
+      <p>Tres etapas: del discípulo platónico al sistematizador del Liceo.</p>
+    </div>
+
+    <div class="works-timeline">
+      <div class="works-periods">
+        <div class="period p1">
+          <h4>Período I · Platónico</h4>
+          <div class="years">367 – 347 a.C.</div>
+          <p style="font-size:.88rem;color:var(--ink-soft);margin-bottom:1rem">Diálogos <em>exotéricos</em> (público amplio), hoy perdidos. Influencia directa de Platón.</p>
+          <ul>
+            <li><strong>Eudemo</strong><em>Defiende la inmortalidad del alma, la reminiscencia y la preexistencia.</em></li>
+            <li><strong>Protréptico</strong><em>Exhortación a la filosofía; la vida como «tumba del alma».</em></li>
+          </ul>
+        </div>
+        <div class="period p2">
+          <h4>Período II · Transición crítica</h4>
+          <div class="years">347 – 335 a.C.</div>
+          <p style="font-size:.88rem;color:var(--ink-soft);margin-bottom:1rem">Assos y Mitilene. Crítica a las Ideas y primeros esbozos propios.</p>
+          <ul>
+            <li><strong>Sobre la filosofía</strong><em>Crítica a las Ideas como números; introduce el Motor Inmóvil.</em></li>
+            <li><strong>Ética a Eudemo</strong><em>La frónesis como contemplación de Dios trascendente.</em></li>
+            <li><strong>Política primitiva</strong><em>Crítica a las utopías platónicas.</em></li>
+          </ul>
+        </div>
+        <div class="period p3">
+          <h4>Período III · Madurez en el Liceo</h4>
+          <div class="years">335 – 322 a.C.</div>
+          <p style="font-size:.88rem;color:var(--ink-soft);margin-bottom:1rem">Tratados <em>esotéricos</em> (apuntes de clase). Enfoque empírico-sistemático.</p>
+          <ul>
+            <li><strong>Órganon</strong><em>Categorías, Analíticos, Tópicos, Sofísticos.</em></li>
+            <li><strong>Metafísica · Física · De Anima</strong></li>
+            <li><strong>Ética a Nicómaco · Política</strong></li>
+            <li><strong>De Caelo · Historia de los animales</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="text-align:center;margin:3rem 0 1.5rem;color:var(--terracotta-dark)">Obras principales</h3>
+    <div class="works-grid">
+      <div class="work-chip">Órganon<small>Lógica</small></div>
+      <div class="work-chip">Metafísica<small>Filosofía primera</small></div>
+      <div class="work-chip">Física<small>Phýsis</small></div>
+      <div class="work-chip">De Anima<small> Acerca del alma</small></div>
+      <div class="work-chip">Ética a Nicómaco<small>Ēthiká</small></div>
+      <div class="work-chip">Política<small>Politiká</small></div>
+      <div class="work-chip">De Caelo<small>Sobre el cielo</small></div>
+      <div class="work-chip">Historia de los animales<small>Biología</small></div>
+    </div>
+
+    <div class="quote-block">
+      <span class="gr">Ὁ βίος ἀνίατος τοῖς τῶν ἔξω πραγμάτων ἐπιθυμοῦσιν.</span>
+      <span class="es">«La vida es insoportable para quienes desean las cosas exteriores.»</span>
+      <span class="ref">— Fragmento del Protréptico</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAPA CONCEPTUAL ============ -->
+<section id="mapa">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">· MAPPA PHILOSOPHICA</span>
+      <h2>Mapa conceptual del sistema</h2>
+      <p>Las cinco grandes áreas del pensamiento aristotélico, interconectadas. Pasa el ratón por cada nodo para ver su descripción.</p>
+    </div>
+
+    <div class="concept-map-wrap">
+      <svg class="concept-map" viewBox="0 0 900 600" width="900" height="600">
+        <!-- Links -->
+        <line class="link" x1="450" y1="300" x2="180" y2="120"/>
+        <line class="link" x1="450" y1="300" x2="720" y2="120"/>
+        <line class="link" x1="450" y1="300" x2="180" y2="480"/>
+        <line class="link" x1="450" y1="300" x2="720" y2="480"/>
+        <line class="link" x1="450" y1="300" x2="450" y2="120"/>
+        <line class="link" x1="180" y1="120" x2="450" y2="120"/>
+        <line class="link" x1="720" y1="120" x2="450" y2="120"/>
+        <line class="link" x1="180" y1="480" x2="720" y2="480"/>
+        <line class="link" x1="180" y1="120" x2="180" y2="480"/>
+        <line class="link" x1="720" y1="120" x2="720" y2="480"/>
+
+        <!-- Node central: Aristóteles -->
+        <g class="node" data-info="aristoteles">
+          <circle cx="450" cy="300" r="55" fill="#b85c3c" stroke="#c9a961" stroke-width="3"/>
+          <text x="450" y="295" text-anchor="middle" fill="#faf6ea" font-size="13" font-weight="700">ARISTÓTELES</text>
+          <text x="450" y="315" text-anchor="middle" fill="#e4d29a" font-size="10">384-322 a.C.</text>
+        </g>
+
+        <!-- Metafísica -->
+        <g class="node" data-info="metafisica">
+          <circle cx="450" cy="120" r="45" fill="#2c5f7c" stroke="#c9a961" stroke-width="2"/>
+          <text x="450" y="118" text-anchor="middle" fill="#faf6ea" font-size="11" font-weight="600">METAFÍSICA</text>
+          <text x="450" y="133" text-anchor="middle" fill="#e4d29a" font-size="9">Ser · Causas</text>
+        </g>
+
+        <!-- Conocimiento -->
+        <g class="node" data-info="conocimiento">
+          <circle cx="180" cy="120" r="45" fill="#6b7a3a" stroke="#c9a961" stroke-width="2"/>
+          <text x="180" y="118" text-anchor="middle" fill="#faf6ea" font-size="11" font-weight="600">CONOCIMIENTO</text>
+          <text x="180" y="133" text-anchor="middle" fill="#e4d29a" font-size="9">Abstracción</text>
+        </g>
+
+        <!-- Antropología -->
+        <g class="node" data-info="antropologia">
+          <circle cx="720" cy="120" r="45" fill="#8c3f25" stroke="#c9a961" stroke-width="2"/>
+          <text x="720" y="118" text-anchor="middle" fill="#faf6ea" font-size="11" font-weight="600">ANTROPOLOGÍA</text>
+          <text x="720" y="133" text-anchor="middle" fill="#e4d29a" font-size="9">Alma · Cuerpo</text>
+        </g>
+
+        <!-- Ética -->
+        <g class="node" data-info="etica">
+          <circle cx="180" cy="480" r="45" fill="#c9a961" stroke="#8c3f25" stroke-width="2"/>
+          <text x="180" y="478" text-anchor="middle" fill="#2d2418" font-size="11" font-weight="600">ÉTICA</text>
+          <text x="180" y="493" text-anchor="middle" fill="#8c3f25" font-size="9">Virtud · Felicidad</text>
+        </g>
+
+        <!-- Política -->
+        <g class="node" data-info="politica">
+          <circle cx="720" cy="480" r="45" fill="#1d4257" stroke="#c9a961" stroke-width="2"/>
+          <text x="720" y="478" text-anchor="middle" fill="#faf6ea" font-size="11" font-weight="600">POLÍTICA</text>
+          <text x="720" y="493" text-anchor="middle" fill="#e4d29a" font-size="9">Polis · Bien común</text>
+        </g>
+
+        <!-- Etiquetas de conexión -->
+        <text x="315" y="200" text-anchor="middle" fill="#5a4a35" font-size="9" font-style="italic">sustancia</text>
+        <text x="585" y="200" text-anchor="middle" fill="#5a4a35" font-size="9" font-style="italic">hilemorfismo</text>
+        <text x="315" y="400" text-anchor="middle" fill="#5a4a35" font-size="9" font-style="italic">phrónesis</text>
+        <text x="585" y="400" text-anchor="middle" fill="#5a4a35" font-size="9" font-style="italic">bien común</text>
+        <text x="450" y="210" text-anchor="middle" fill="#5a4a35" font-size="9" font-style="italic">eîdos</text>
+        <text x="450" y="400" text-anchor="middle" fill="#5a4a35" font-size="9" font-style="italic">eudaimonía</text>
+      </svg>
+
+      <div class="map-info" id="mapInfo">
+        <div class="title">Pasa el ratón por un nodo</div>
+        <div class="desc">Cada círculo representa una rama del pensamiento aristotélico. Las líneas muestran cómo se conectan entre sí mediante conceptos clave.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METAFÍSICA ============ -->
+<section id="metafisica" style="background:linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">I · METAPHYSIKA</span>
+      <h2>Metafísica</h2>
+      <p>La investigación de los principios últimos y las causas del ser en cuanto ser.</p>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin-bottom:1rem">1.1 · Crítica al idealismo platónico</h3>
+    <div class="compare">
+      <div class="compare-head plato">ΠΛΑΤΩΝ · Platón</div>
+      <div class="compare-head arist">ΑΡΙΣΤΟΤΕΛΗΣ · Aristóteles</div>
+      <div class="compare-row">
+        <div class="label">Realidad</div>
+        <div class="cell">Dual: mundo sensible (cambiante) vs. mundo de las Ideas (eternas, separadas).</div>
+        <div class="cell">Realismo inmanente: las sustancias son compuestos de materia y forma. Las formas <em>no</em> constituyen un mundo separado.</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Cambio</div>
+        <div class="cell">Explicado por el demiurgo que copia las Ideas.</div>
+        <div class="cell">Explicado por acto-potencia y las cuatro causas. Motor Inmóvil como causa final.</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Conocimiento</div>
+        <div class="cell">Innato, reminiscencia de las Ideas contempladas antes de nacer.</div>
+        <div class="cell">Empírico-racional: la mente es <em>tabula rasa</em> y abstrae las formas a partir de la experiencia.</div>
+      </div>
+      <div class="compare-row">
+        <div class="label">Método literario</div>
+        <div class="cell">Diálogo dramático, abierto y poético.</div>
+        <div class="cell">Tratado sistemático, monológico, enciclopédico.</div>
+      </div>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem">1.2 · El problema del Tiempo</h3>
+    <div class="quote-block">
+      <span class="gr">Ὁ χρόνος ἀριθμός ἐστιν κινήσεως κατὰ τὸ πρότερον καὶ ὕστερον.</span>
+      <span class="es">«El tiempo es el número del movimiento según el antes y el después.»</span>
+      <span class="ref">— Física IV, 11, 219b</span>
+    </div>
+    <p style="max-width:800px;margin:1rem auto">El <strong>«ahora»</strong> (<span class="greek">τὸ νῦν</span>) tiene doble naturaleza: como <em>continuidad</em> une pasado y futuro; como <em>divisibilidad</em> los separa. Análogo al punto en la línea: divide y a la vez hace continua la línea. El tiempo es <strong>relacional</strong>: no existe sin cambio, ni como medida sin un alma que lo cuente.</p>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem">1.3 · El problema del Espacio (Lugar)</h3>
+    <div class="quote-block">
+      <span class="gr">Τόπος ἐστὶ τὸ τοῦ περιέχοντος πέρας ἀκίνητον πρῶτον.</span>
+      <span class="es">«El lugar es el límite inmóvil primero del cuerpo que contiene.»</span>
+      <span class="ref">— Física IV, 4, 212a20</span>
+    </div>
+    <p style="max-width:800px;margin:1rem auto">El espacio no es un contenedor absoluto (como en Newton) ni un vacío: es una <strong>relación de contención</strong> entre cuerpos. Aristóteles rechaza el vacío (<span class="greek">κενόν</span>): «la naturaleza huye del vacío» (<span class="greek">horror vacui</span>). El universo es un <em>plenum</em> finito y esférico, sin «espacio exterior».</p>
+
+    <div class="quote-block">
+      <span class="gr">ἡ φύσις τὸ κενὸν φεύγει.</span>
+      <span class="es">«La naturaleza huye del vacío.»</span>
+      <span class="ref">— Horror vacui · Física IV</span>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem">1.4 · Las cuatro causas</h3>
+    <div class="causes-grid">
+      <div class="cause-card">
+        <div class="num">I</div>
+        <h4>Causa Material</h4>
+        <span class="gr">αἰτία ὑλική</span>
+        <p>De qué está hecho algo. El bronce de la estatua, la madera de la mesa, los huesos y órganos de un animal. La <em>materia prima</em> es pura potencialidad.</p>
+      </div>
+      <div class="cause-card">
+        <div class="num">II</div>
+        <h4>Causa Formal</h4>
+        <span class="gr">αἰτία εἰδική</span>
+        <p>La estructura, esencia o diseño. Lo que hace que algo sea lo que es. En los seres vivos, es el principio de vida (el alma).</p>
+      </div>
+      <div class="cause-card">
+        <div class="num">III</div>
+        <h4>Causa Eficiente</h4>
+        <span class="gr">αἰτία κινητική</span>
+        <p>El agente o fuerza que produce el cambio: el escultor, el carpintero, el padre, la lluvia.</p>
+      </div>
+      <div class="cause-card">
+        <div class="num">IV</div>
+        <h4>Causa Final</h4>
+        <span class="gr">αἰτία τελική</span>
+        <p>El propósito o fin (<span class="greek">télos</span>) hacia el que tiende el cambio: la salud en la medicina, la victoria en la estrategia, la forma adulta de una semilla.</p>
+      </div>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem">1.5 · Acto y Potencia</h3>
+    <div class="card" style="max-width:800px;margin:0 auto">
+      <h3><span class="icon">Δ</span> Solución al problema de Parménides</h3>
+      <p>Entre el <strong>ser</strong> y el <strong>no-ser</strong> cabe un estado intermedio: el <em>ser potencial</em> (<span class="greek">δύναμις</span>). El cambio es el paso de la potencia al acto (<span class="greek">ἐνέργεια</span>): una semilla es semilla <em>en acto</em> y árbol <em>en potencia</em>. Así, lo que llega a ser no procede de la nada, sino de algo que podía llegar a serlo.</p>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem">1.6 · Hilemorfismo · Sustancia</h3>
+    <div class="card" style="max-width:800px;margin:0 auto">
+      <h3><span class="icon">Ο</span> <span class="greek" style="font-size:1.3rem">Οὐσία</span> · Sustancia</h3>
+      <p><strong>Sustancia primera:</strong> el individuo concreto (este hombre, este árbol). <strong>Sustancia segunda:</strong> la esencia universal («ser humano», «ser árbol»). Las sustancias son compuestos indisolubles de <strong>materia</strong> (<span class="greek">hylé</span>) y <strong>forma</strong> (<span class="greek">eîdos</span>) — como el sello impreso en la cera.</p>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem;text-align:center">1.7 · El Cosmos aristotélico</h3>
+    <div class="cosmos-wrap">
+      <svg class="cosmos-svg" viewBox="0 0 500 500" width="500" height="500">
+        <defs>
+          <radialGradient id="earth" cx="50%" cy="50%">
+            <stop offset="0%" stop-color="#6b7a3a"/>
+            <stop offset="100%" stop-color="#3a4520"/>
+          </radialGradient>
+          <radialGradient id="stars" cx="50%" cy="50%">
+            <stop offset="0%" stop-color="#c9a961"/>
+            <stop offset="100%" stop-color="#8c3f25"/>
+          </radialGradient>
+        </defs>
+        <!-- Esfera de las estrellas fijas -->
+        <g class="stars">
+          <circle cx="250" cy="250" r="230" fill="none" stroke="#c9a961" stroke-width="2" opacity=".8"/>
+          <circle cx="250" cy="250" r="230" fill="url(#stars)" opacity=".15"/>
+          <circle cx="150" cy="80" r="1.5" fill="#faf6ea"/>
+          <circle cx="350" cy="100" r="1.5" fill="#faf6ea"/>
+          <circle cx="420" cy="180" r="1.5" fill="#faf6ea"/>
+          <circle cx="80" cy="200" r="1.5" fill="#faf6ea"/>
+          <circle cx="400" cy="350" r="1.5" fill="#faf6ea"/>
+          <circle cx="100" cy="380" r="1.5" fill="#faf6ea"/>
+          <circle cx="200" cy="430" r="1.5" fill="#faf6ea"/>
+          <circle cx="320" cy="420" r="1.5" fill="#faf6ea"/>
+        </g>
+        <!-- Esferas planetarias animadas -->
+        <g class="sphere s1"><circle cx="250" cy="250" r="200" fill="none" stroke="#c9a961" stroke-width="1" opacity=".5"/></g>
+        <g class="sphere s2"><circle cx="250" cy="250" r="175" fill="none" stroke="#c9a961" stroke-width="1" opacity=".5"/></g>
+        <g class="sphere s3"><circle cx="250" cy="250" r="150" fill="none" stroke="#c9a961" stroke-width="1" opacity=".5"/></g>
+        <g class="sphere s4"><circle cx="250" cy="250" r="125" fill="none" stroke="#c9a961" stroke-width="1" opacity=".5"/></g>
+        <g class="sphere s5"><circle cx="250" cy="250" r="100" fill="none" stroke="#c9a961" stroke-width="1" opacity=".5"/></g>
+        <g class="sphere s6"><circle cx="250" cy="250" r="80" fill="none" stroke="#c9a961" stroke-width="1" opacity=".5"/></g>
+        <!-- Planetas -->
+        <g class="planet p1">
+          <circle cx="450" cy="250" r="4" fill="#e4d29a"/>
+        </g>
+        <g class="planet p2">
+          <circle cx="425" cy="250" r="3.5" fill="#b85c3c"/>
+        </g>
+        <g class="planet p3">
+          <circle cx="400" cy="250" r="3" fill="#6b7a3a"/>
+        </g>
+        <!-- Tierra -->
+        <circle cx="250" cy="250" r="35" fill="url(#earth)"/>
+        <!-- Etiquetas -->
+        <text x="250" y="255" text-anchor="middle" fill="#faf6ea" font-family="Cinzel" font-size="11" font-weight="700">Γῆ</text>
+        <text x="250" y="30" text-anchor="middle" fill="#c9a961" font-family="Cinzel" font-size="10">Motor Inmóvil · Acto Puro</text>
+        <text x="485" y="250" text-anchor="end" fill="#c9a961" font-family="Cinzel" font-size="9">Esfera estrellas fijas</text>
+        <text x="15" y="250" text-anchor="start" fill="#c9a961" font-family="Cinzel" font-size="9">Éter · Supralunar</text>
+        <text x="250" y="480" text-anchor="middle" fill="#c9a961" font-family="Cinzel" font-size="9">Mundo sublunar · 4 elementos · corruptible</text>
+      </svg>
+    </div>
+    <p style="text-align:center;max-width:700px;margin:1rem auto;color:var(--ink-soft);font-style:italic">Universo finito, esférico y lleno (<em>plenum</em>). Dos regiones: el mundo <strong>supralunar</strong> (éter, eterno, movimientos circulares) y el <strong>sublunar</strong> (cuatro elementos, corruptible). 55 esferas concéntricas movidas cada una por un motor inteligente, hasta el <strong>Motor Inmóvil</strong> — acto puro, pensamiento del pensamiento.</p>
+
+  </div>
+</section>
+
+<!-- ============ CONOCIMIENTO ============ -->
+<section id="conocimiento">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">II · EPISTEME</span>
+      <h2>Teoría del Conocimiento</h2>
+      <p>De la sensación a la sabiduría: el alma se hace, de algún modo, todas las cosas.</p>
+    </div>
+
+    <div class="quote-block">
+      <span class="gr">Ἡ ψυχὴ τὰ ὄντα πώς ἐστι πάντα.</span>
+      <span class="es">«El alma es, de algún modo, todos los entes.»</span>
+      <span class="ref">— De Anima III, 8</span>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:2rem 0 1rem">Proceso de abstracción · De lo sensible a lo inteligible</h3>
+    <div class="process">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h4>Sentidos externos</h4>
+        <span class="gr">αἴσθησις</span>
+        <p>Recepción pasiva de las formas sensibles de los objetos: color, sonido, sabor. Cada sentido capta su objeto propio.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h4>Sentido común · Imaginación · Memoria</h4>
+        <span class="gr">κοινὴ αἴσθησις · φαντασία · μνήμη</span>
+        <p>Integración de las percepciones y conservación de las imágenes (<em>phantásmata</em>) aun ausente el objeto.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h4>Intelecto agente</h4>
+        <span class="gr">νοῦς ποιητικός</span>
+        <p>Como la luz hace visibles los colores, ilumina las imágenes y <em>separa</em> la forma inteligible de la materia.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h4>Intelecto paciente</h4>
+        <span class="gr">νοῦς παθητικός</span>
+        <p>Recibe la forma pura, ahora universal, y la piensa. <em>Tabula rasa</em> que se actualiza al acoger las esencias.</p>
+      </div>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem">Grados del saber</h3>
+    <div class="causes-grid">
+      <div class="cause-card">
+        <div class="num">α</div>
+        <h4>Experiencia</h4>
+        <span class="gr">ἐμπειρία</span>
+        <p>Acumulación de recuerdos. Sabe <em>que</em> algo ocurre, pero no <em>por qué</em>. El médico empírico cura a Calias porque antes le funcionó.</p>
+      </div>
+      <div class="cause-card">
+        <div class="num">β</div>
+        <h4>Arte / Técnica</h4>
+        <span class="gr">τέχνη</span>
+        <p>Descubre la regla general. Sabe <em>por qué</em> y puede enseñarlo. Universalidad práctica orientada a la producción.</p>
+      </div>
+      <div class="cause-card">
+        <div class="num">γ</div>
+        <h4>Ciencia</h4>
+        <span class="gr">ἐπιστήμη</span>
+        <p>Conocimiento demostrativo de lo universal y necesario. Parte de principios primeros y llega a conclusiones por silogismo.</p>
+      </div>
+      <div class="cause-card">
+        <div class="num">δ</div>
+        <h4>Sabiduría</h4>
+        <span class="gr">σοφία</span>
+        <p>Cúspide del saber: conjunción de <em>nous</em> (intuición de los principios) y <em>episteme</em>. Conoce las causas supremas de todo lo real.</p>
+      </div>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem">Ramas del saber</h3>
+    <div class="compare">
+      <div class="compare-head arist" style="background:linear-gradient(135deg, var(--aegean), var(--aegean-dark))">ΘΕΩΡΗΤΙΚΟΙ · Teóricos</div>
+      <div class="compare-head arist" style="background:linear-gradient(135deg, var(--olive), #4a5528)">ΠΡΑΚΤΙΚΟΙ · Prácticos</div>
+      <div class="compare-row">
+        <div class="cell">Universales, necesarios, demostrativos, desinteresados. Buscan la verdad por sí misma.<br><br><strong>Episteme</strong> (ciencia), <strong>Nous</strong> (intuición), <strong>Sophía</strong> (sabiduría).</div>
+        <div class="cell">Contingentes, no demostrativos, interesados. Orientados a la acción humana.<br><br><strong>Ética</strong> (bien individual), <strong>Política</strong> (bien común), guiadas por la <strong>Phrónesis</strong> (prudencia).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANTROPOLOGÍA ============ -->
+<section id="antropologia" style="background:linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">III · ANTHROPOS</span>
+      <h2>Antropología</h2>
+      <p>Unidad sustancial de cuerpo y alma: el ser humano como compuesto hilemórfico.</p>
+    </div>
+
+    <div class="quote-block">
+      <span class="gr">Ζῷον λόγον ἔχον · Ζῷον πολιτικόν.</span>
+      <span class="es">«Animal racional · Animal político.»</span>
+      <span class="ref">— Definición del hombre · Política I, 2</span>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:2rem 0 1rem;text-align:center">Jerarquía de las almas</h3>
+    <div class="soul-pyramid">
+      <div class="soul-level l3">
+        <h4>Ψυχὴ λογική · Alma racional</h4>
+        <small>Exclusiva del ser humano · Intelecto, deliberación, conocimiento de la verdad</small>
+      </div>
+      <div class="soul-level l2">
+        <h4>Ψυχὴ αἰσθητική · Alma sensitiva</h4>
+        <small>Propia de los animales · Percepción, deseo, movimiento local, imaginación</small>
+      </div>
+      <div class="soul-level l1">
+        <h4>Ψυχὴ θρεπτική · Alma vegetativa</h4>
+        <small>Propia de las plantas · Nutrición, crecimiento, reproducción</small>
+      </div>
+    </div>
+    <p style="text-align:center;max-width:700px;margin:2rem auto;color:var(--ink-soft)">Las funciones superiores <em>incluyen</em> a las inferiores. Las funciones vegetativas y sensitivas dependen del cuerpo y perecen con él. El estatuto del <strong>intelecto</strong> (<span class="greek">nous</span>) plantea un problema específico: Aristóteles lo caracteriza como «separado, impasible, no mezclado» y vinculado a lo eterno — pero <strong>no establece una inmortalidad personal</strong> al modo platónico.</p>
+
+    <div class="card" style="max-width:800px;margin:2rem auto">
+      <h3><span class="icon">≠</span> Frente al dualismo platónico</h3>
+      <p>En el <em>Fedón</em>, Platón presenta el alma como inmortal y capaz de existir separada del cuerpo. Aristóteles, en cambio, explica al ser humano como <strong>unidad sustancial</strong>: el alma es la <em>forma</em> y el principio vital del cuerpo; el cuerpo es su <em>materia</em>. El alma no es un ser completo alojado en otro, sino aquello que <strong>hace del cuerpo un ser vivo</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÉTICA ============ -->
+<section id="etica">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">IV · ĒTHIKA</span>
+      <h2>Ética</h2>
+      <p>La búsqueda de la felicidad mediante la virtud y el término medio.</p>
+    </div>
+
+    <div class="quote-block">
+      <span class="gr">Τὸ ἀνθρώπινον ἀγαθὸν ψυχῆς ἐνέργεια γίνεται κατ᾽ ἀρετήν.</span>
+      <span class="es">«El bien humano se convierte en actividad del alma conforme a la virtud.»</span>
+      <span class="ref">— Ética a Nicómaco I, 7, 1098a</span>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:2rem 0 1rem">Eudaimonismo · La felicidad como fin</h3>
+    <div class="card" style="max-width:800px;margin:0 auto 2rem">
+      <h3><span class="icon">Ε</span> <span class="greek">Εὐδαιμονία</span></h3>
+      <p>La <strong>felicidad</strong> es el bien supremo, aquello a lo que todas las cosas aspiran. No es un estado pasivo sino una <em>actividad</em>: la actividad del alma conforme a la razón. Para alcanzarla se requieren: <strong>bienes corporales</strong> (salud), <strong>bienes externos</strong> (medios suficientes) y <strong>bienes del alma</strong> (virtudes). La vida más perfecta es la <em>contemplativa</em> (<span class="greek">theōría</span>), propia de lo divino.</p>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:2rem 0 1rem">Tipos de virtudes</h3>
+    <div class="virtues-grid">
+      <div class="virtue-card">
+        <h4>Virtudes dianoéticas</h4>
+        <span class="gr">ἀρεταὶ διανοητικαί</span>
+        <p>Perfeccionan la parte <strong>racional</strong> del alma. Se adquieren por <em>enseñanza</em>.</p>
+        <ul>
+          <li><strong>Sophía</strong> · Sabiduría</li>
+          <li><strong>Nous</strong> · Entendimiento</li>
+          <li><strong>Episteme</strong> · Ciencia</li>
+          <li><strong>Phrónesis</strong> · Prudencia</li>
+          <li><strong>Téchne</strong> · Arte</li>
+        </ul>
+      </div>
+      <div class="virtue-card">
+        <h4>Virtudes éticas</h4>
+        <span class="gr">ἀρεταὶ ἠθικαί</span>
+        <p>Perfeccionan la parte <strong>apetitiva</strong> del alma. Se adquieren por <em>hábito</em> (<span class="greek">héxis</span>).</p>
+        <ul>
+          <li><strong>Valentía</strong> · entre temeridad y cobardía</li>
+          <li><strong>Liberalidad</strong> · entre prodigalidad y avaricia</li>
+          <li><strong>Templanza</strong> · entre intemperancia e insensibilidad</li>
+          <li><strong>Magnificencia</strong> · entre vulgaridad y mezquindad</li>
+          <li><strong>Justicia</strong> · virtud ética suprema</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="max-width:800px;margin:2rem auto;border-left:4px solid var(--terracotta)">
+      <h3><span class="icon">Μ</span> El término medio (<span class="greek">μεσότης</span>)</h3>
+      <p>La virtud ética es un <strong>hábito de elegir</strong> consistente en un término medio <em>relativo a nosotros</em>, determinado por la razón y por lo que determinaría el hombre prudente. No es un medio matemático, sino <strong>racional y contextual</strong>. Hay, sin embargo, límites absolutos: acciones que son malas en sí mismas (adulterio, robo, homicidio) no admiten término medio.</p>
+    </div>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem">La justicia</h3>
+    <div class="causes-grid">
+      <div class="cause-card">
+        <div class="num">Α</div>
+        <h4>Justicia particular</h4>
+        <span class="gr">δικαιοσύνη κατὰ μέρος</span>
+        <p><strong>Distributiva:</strong> reparte bienes según mérito (igualdad geométrica).<br><strong>Correctiva:</strong> restaura la igualdad tras un daño (igualdad aritmética).</p>
+      </div>
+      <div class="cause-card">
+        <div class="num">Β</div>
+        <h4>Justicia general</h4>
+        <span class="gr">δικαιοσύνη καθ᾽ ὅλα</span>
+        <p>Ejercicio de toda virtud en relación con los demás. Cumplimiento de las leyes orientadas al <em>bien común</em>.</p>
+      </div>
+      <div class="cause-card">
+        <div class="num">Γ</div>
+        <h4>Equidad</h4>
+        <span class="gr">ἐπιείκεια</span>
+        <p>Corrección de la ley general cuando su aplicación literal produce injusticia en el caso particular. Atiende a la <em>intención</em> del legislador.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POLÍTICA ============ -->
+<section id="politica" style="background:linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">V · POLITIKA</span>
+      <h2>Filosofía Política</h2>
+      <p>La polis como marco natural para la realización moral del hombre.</p>
+    </div>
+
+    <div class="quote-block">
+      <span class="gr">Ὁ ἄνθρωπος φύσει πολιτικὸν ζῷον.</span>
+      <span class="es">«El hombre es, por naturaleza, un animal político.»</span>
+      <span class="ref">— Política I, 2, 1253a</span>
+    </div>
+
+    <p style="max-width:800px;margin:1rem auto">La sociedad no es un pacto artificial (contra los sofistas), sino <strong>natural</strong>: la polis es anterior al individuo, como el todo a las partes. De la familia surge la aldea, y de varias aldeas la <em>polis</em>, que busca la autosuficiencia y el bien vivir. El lenguaje (<span class="greek">lógos</span>) revela esta sociabilidad: solo el ser humano posee palabra racional para deliberar sobre lo justo y lo injusto.</p>
+
+    <h3 style="color:var(--terracotta-dark);margin:3rem 0 1rem">Formas de gobierno</h3>
+    <table class="gov-table">
+      <thead>
+        <tr>
+          <th>Gobernantes</th>
+          <th class="good">Forma recta (bien común)</th>
+          <th class="bad">Forma desviada (interés propio)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Uno</strong></td>
+          <td class="good">Monarquía</td>
+          <td class="bad">Tiranía</td>
+        </tr>
+        <tr>
+          <td><strong>Pocos</strong></td>
+          <td class="good">Aristocracia</td>
+          <td class="bad">Oligarquía</td>
+        </tr>
+        <tr>
+          <td><strong>Muchos</strong></td>
+          <td class="good">Politeía</td>
+          <td class="bad">Democracia</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="max-width:800px;margin:1rem auto;color:var(--ink-soft);font-style:italic">Nota: la «democracia» aristotélica tiene sentido crítico — gobierno de los pobres en beneficio de su grupo — y no equivale a la democracia constitucional moderna. Aristóteles valora la <strong>politeía</strong> (combinación de elementos democráticos y oligárquicos) y la importancia de una <strong>clase media amplia</strong> para la estabilidad.</p>
+
+    <div class="card" style="max-width:800px;margin:2rem auto">
+      <h3><span class="icon">Κ</span> Crítica al comunismo platónico</h3>
+      <p>Aristóteles rechaza la comunidad de bienes, mujeres e hijos propuesta en la <em>República</em>: diluye la responsabilidad, debilita los afectos y genera más conflictos que los que resuelve. La <strong>propiedad privada</strong>, administrada con <em>liberalidad</em>, es más natural y favorece la virtud.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFLUENCIA HISTÓRICA ============ -->
+<section id="influencia">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">VI · PERENNITAS</span>
+      <h2>Influencia histórica</h2>
+      <p>Del mundo islámico a la Escolástica, de la ciencia moderna a la filosofía contemporánea.</p>
+    </div>
+
+    <div class="influence-grid">
+      <div class="influence-card">
+        <div class="era">Mundo Islámico</div>
+        <h4>Averroes (Ibn Rushd)</h4>
+        <span class="period">1126 – 1198 · Córdoba</span>
+        <p>«El Comentador» por excelencia. Sus <em>commentaria</em> sobre Aristóteles fueron traducidos al latín en Toledo y Sicilia, reintroduciendo al Estagirita en la Europa cristiana. Defendió la armonía entre filosofía y religión.</p>
+      </div>
+      <div class="influence-card">
+        <div class="era">Escolástica Medieval</div>
+        <h4>Santo Tomás de Aquino</h4>
+        <span class="period">1225 – 1274 · Nápoles</span>
+        <p>Integra el aristotelismo con la teología cristiana. El «principio de los principios» de la <em>Summa Theologiae</em> es aristotélico: la existencia de Dios se demuestra por las cinco vías, reformulando el Motor Inmóvil.</p>
+      </div>
+      <div class="influence-card">
+        <div class="era">Renacimiento</div>
+        <h4>Pietro Pomponazzi</h4>
+        <span class="period">1462 – 1525 · Mantua</span>
+        <p>Defiende un aristotelismo naturalista: el alma racional es mortal según la razón, aunque inmortal por la fe. Abre la puerta al pensamiento moderno separando filosofía de teología.</p>
+      </div>
+      <div class="influence-card">
+        <div class="era">Ciencia Moderna</div>
+        <h4>Galileo y la revolución científica</h4>
+        <span class="period">s. XVII</span>
+        <p>La física aristotélica (horror vacui, lugares naturales, cosmos finito) es superada por la mecánica newtoniana. Sin embargo, su lógica y su método clasificatorio perviven en la biología de Linneo y Darwin.</p>
+      </div>
+      <div class="influence-card">
+        <div class="era">Filosofía Moderna</div>
+        <h4>Kant, Hegel, Heidegger</h4>
+        <span class="period">s. XVIII – XX</span>
+        <p>Kant retoma las categorías; Hegel, la dialéctica y la teleología; Heidegger, la pregunta por el ser (<em>ousía</em>). La metafísica aristotélica sigue siendo un interlocutor ineludible.</p>
+      </div>
+      <div class="influence-card">
+        <div class="era">Ética contemporánea</div>
+        <h4>MacIntyre y la virtud</h4>
+        <span class="period">s. XX – XXI</span>
+        <p>Alasdair MacIntyre, en <em>Tras la virtud</em> (1981), rehabilita la ética aristotélica frente al deontologismo kantiano y al utilitarismo, reivindicando el término medio y la <em>phrónesis</em>.</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <span class="gr">Ἓν χελιδὼν ἔαρ οὐ ποιεῖ.</span>
+      <span class="es">«Una golondrina no hace primavera.»</span>
+      <span class="ref">— Ética a Nicómaco I, 7, 1098a</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLOSARIO ============ -->
+<section id="glosario" style="background:linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%)">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">VII · LEXICON</span>
+      <h2>Glosario griego-español</h2>
+      <p>Los términos clave del pensamiento aristotélico, en su lengua original.</p>
+    </div>
+
+    <div class="glossary-grid">
+      <div class="glossary-card">
+        <div class="term">Οὐσία</div>
+        <div class="translit">OUSÍA</div>
+        <div class="def">Sustancia. El ser por antonomacia, sujeto no predicado. Primera: individuo concreto; segunda: esencia universal.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Ὕλη</div>
+        <div class="translit">HYLÉ</div>
+        <div class="def">Materia. Principio de individuación. La materia prima es pura potencialidad, sustrato incognoscible.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Εἶδος</div>
+        <div class="translit">EÎDOS</div>
+        <div class="def">Forma. Lo que hace que algo sea lo que es. En los seres vivos, es el alma. Se capta por abstracción.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Ἐνέργεια</div>
+        <div class="translit">ENÉRGEIA</div>
+        <div class="def">Acto. Lo que un ser es efectivamente. Frente a la potencia, es la realización de una capacidad.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Δύναμις</div>
+        <div class="translit">DÝNAMIS</div>
+        <div class="def">Potencia. Capacidad real de adquirir una forma o estado. Tendencia interna al cambio.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Νοῦς</div>
+        <div class="translit">NOÛS</div>
+        <div class="def">Intelecto. Facultad de aprehender las formas sin materia. Agente (ilumina) y paciente (recibe).</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Εὐδαιμονία</div>
+        <div class="translit">EUDAIMONÍA</div>
+        <div class="def">Felicidad. Bien supremo, actividad del alma conforme a la virtud. Fin último de la vida humana.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Ἀρετή</div>
+        <div class="translit">ARETÉ</div>
+        <div class="def">Virtud. Excelencia. Hábito de elegir el término medio racional entre dos extremos.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Φρόνησις</div>
+        <div class="translit">PHRÓNESIS</div>
+        <div class="def">Prudencia. Virtud intelectual práctica que guía la acción moral atendiendo a las circunstancias.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Σοφία</div>
+        <div class="translit">SOPHÍA</div>
+        <div class="def">Sabiduría. Cúspide del saber: conjunción de nous y episteme. Conoce las causas supremas.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Ἐπιστήμη</div>
+        <div class="translit">EPISTÉME</div>
+        <div class="def">Ciencia. Conocimiento demostrativo de lo universal y necesario, por silogismo a partir de principios.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Τέχνη</div>
+        <div class="translit">TÉCHNE</div>
+        <div class="def">Arte / Técnica. Saber hacer orientado a la producción. Conoce las causas para producir un fin.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Τέλος</div>
+        <div class="translit">TÉLOS</div>
+        <div class="def">Fin. Propósito hacia el que tiende un proceso. La naturaleza es teleológica.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Αἴσθησις</div>
+        <div class="translit">ÁISTHESIS</div>
+        <div class="def">Sensación. Recepción pasiva de la forma sensible de los objetos, sin su materia.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Φαντασία</div>
+        <div class="translit">PHANTASÍA</div>
+        <div class="def">Imaginación. Facultad de conservar y manipular las imágenes (phantásmata) ausentes.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Μεσότης</div>
+        <div class="translit">MESÓTES</div>
+        <div class="def">Término medio. Punto racional entre dos extremos viciosos. No matemático, sino relativo a nosotros.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Ζῷον πολιτικόν</div>
+        <div class="translit">ZÔON POLITIKÓN</div>
+        <div class="def">Animal político. Definición del ser humano: necesita la polis para realizarse plenamente.</div>
+      </div>
+      <div class="glossary-card">
+        <div class="term">Ζῷον λόγον ἔχον</div>
+        <div class="translit">ZÔON LÓGON ÉCHON</div>
+        <div class="def">Animal racional (o «que tiene palabra»). Definición esencial del ser humano.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section id="quiz">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">VIII · EXAMEN</span>
+      <h2>Quiz de autoevaluación</h2>
+      <p>Pon a prueba lo aprendido. 8 preguntas sobre las ideas centrales de Aristóteles.</p>
+    </div>
+
+    <div class="quiz-container" id="quizContainer">
+      <div class="quiz-progress">
+        <div class="q-num" id="qNum">PREGUNTA I</div>
+        <div class="q-counter" id="qCounter">1 / 8</div>
+      </div>
+      <div class="quiz-question" id="qText"></div>
+      <div class="quiz-options" id="qOptions"></div>
+      <div class="quiz-feedback" id="qFeedback"></div>
+      <div class="quiz-nav">
+        <button class="quiz-btn" id="qNext" disabled>Siguiente →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="ornament">
+    <span class="line"></span><span class="dot"></span><span class="line"></span>
+  </div>
+  <h3>Conclusión Global</h3>
+  <p>«Aristóteles sintetiza un sentido empirista del conocimiento y una perspectiva racionalista, corrigiendo el idealismo platónico hacia un realismo inmanente que integra las ideas en el mundo físico. Su legado es la base de la filosofía occidental: naturaleza (hilemorfismo), conocimiento (abstracción inductiva), virtud (término medio práctico) y sociedad (polis natural).»</p>
+  <p style="font-size:.95rem;opacity:.8">Influyó en la Escolástica medieval (Tomás de Aquino), en la filosofía moderna (Kant, Descartes, Hegel) y en la ciencia hasta nuestros días.</p>
+  <div class="copy">
+    <p>UNIDAD 3 · ARISTÓTELES · APUNTES PRINCIPALES · EDICIÓN COMPLETA v2.0</p>
+    <p>«El maestro de los que saben» · Averroes</p>
+  </div>
+</footer>
+
+<script>
+  // ====== ANIMACIÓN AL SCROLL ======
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.card, .cause-card, .process-step, .tl-item, .virtue-card, .quote-block, .influence-card, .glossary-card').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+  // ====== MAPA CONCEPTUAL INTERACTIVO ======
+  const mapData = {
+    aristoteles: {
+      title: 'Aristóteles · El Estagirita',
+      desc: '384-322 a.C. Discípulo de Platón, preceptor de Alejandro Magno, fundador del Liceo. Sistematizó todo el saber de su tiempo en un corpus enciclopédico que dominó el pensamiento occidental durante dos milenios.'
+    },
+    metafisica: {
+      title: 'Metafísica · Filosofía primera',
+      desc: 'Estudia el ser en cuanto ser, las sustancias y las causas primeras. Introduce las cuatro causas (material, formal, eficiente, final), la teoría del acto y la potencia, el hilemorfismo y el Motor Inmóvil como acto puro.'
+    },
+    conocimiento: {
+      title: 'Teoría del Conocimiento',
+      desc: 'El conocimiento es aprehensión de la forma sin la materia. Proceso de abstracción: sentidos → sentido común → imaginación → intelecto agente → intelecto paciente. Grados: experiencia, arte, ciencia, sabiduría.'
+    },
+    antropologia: {
+      title: 'Antropología · Unidad sustancial',
+      desc: 'El ser humano es compuesto hilemórfico: cuerpo (materia) y alma (forma). Tres almas jerárquicas: vegetativa, sensitiva, racional. Definición: animal racional (zôon lógon échon) y animal político (zôon politikón).'
+    },
+    etica: {
+      title: 'Ética a Nicómaco',
+      desc: 'Ética eudaimonista: la felicidad (eudaimonía) es el bien supremo, actividad del alma conforme a la virtud. Virtudes dianoéticas (intelectuales) y éticas (del carácter). La virtud ética es término medio (mesótes) entre dos extremos.'
+    },
+    politica: {
+      title: 'Política · La Polis natural',
+      desc: 'La sociedad es natural, no convencional. Seis formas de gobierno: tres rectas (monarquía, aristocracia, politeía) y tres desviadas (tiranía, oligarquía, democracia). El bien común es el fin de la polis.'
+    }
+  };
+
+  document.querySelectorAll('.concept-map .node').forEach(node => {
+    node.addEventListener('mouseenter', () => {
+      const key = node.getAttribute('data-info');
+      const info = mapData[key];
+      document.getElementById('mapInfo').innerHTML = `
+        <div class="title">${info.title}</div>
+        <div class="desc">${info.desc}</div>
+      `;
+    });
+    node.addEventListener('mouseleave', () => {
+      document.getElementById('mapInfo').innerHTML = `
+        <div class="title">Pasa el ratón por un nodo</div>
+        <div class="desc">Cada círculo representa una rama del pensamiento aristotélico. Las líneas muestran cómo se conectan entre sí mediante conceptos clave.</div>
+      `;
+    });
+  });
+
+  // ====== QUIZ INTERACTIVO ======
+  const quizData = [
+    {
+      q: '¿Cómo define Aristóteles el tiempo en la Física IV?',
+      options: [
+        'Un contenedor absoluto en el que ocurren los eventos',
+        'El número del movimiento según el antes y el después',
+        'Una ilusión del alma que percibe el cambio',
+        'La medida del movimiento del sol'
+      ],
+      correct: 1,
+      feedback: 'Correcto. El tiempo es "el número (medida) del movimiento según el antes y el después" (Física IV, 11, 219b). No es un contenedor absoluto (eso será Newton), sino una relación inherente al cambio.'
+    },
+    {
+      q: '¿Cuál NO es una de las cuatro causas aristotélicas?',
+      options: [
+        'Causa material',
+        'Causa formal',
+        'Causa eficiente',
+        'Causa mecánica'
+      ],
+      correct: 3,
+      feedback: 'Correcto. Las cuatro causas son: material, formal, eficiente y final. La "causa mecánica" es un concepto moderno, no aristotélico.'
+    },
+    {
+      q: '¿Qué tipo de alma es exclusiva del ser humano?',
+      options: [
+        'Alma vegetativa',
+        'Alma sensitiva',
+        'Alma racional',
+        'Alma irascible'
+      ],
+      correct: 2,
+      feedback: 'Correcto. El alma racional (psyché logiké) es exclusiva del ser humano. Incluye las funciones de las almas inferiores (vegetativa y sensitiva) más el intelecto y la deliberación.'
+    },
+    {
+      q: '¿Cuál es la forma de gobierno "recta" cuando gobiernan muchos?',
+      options: [
+        'Democracia',
+        'Politeía',
+        'Oligarquía',
+        'Aristocracia'
+      ],
+      correct: 1,
+      feedback: 'Correcto. La politeía es la forma recta del gobierno de los muchos, orientada al bien común. La "democracia" aristotélica es la forma desviada (gobierno de los pobres en su propio interés).'
+    },
+    {
+      q: '¿Qué es la eudaimonía en la ética aristotélica?',
+      options: [
+        'Un estado emocional de placer',
+        'El cumplimiento del deber',
+        'La felicidad como actividad del alma conforme a la virtud',
+        'La ausencia de dolor'
+      ],
+      correct: 2,
+      feedback: 'Correcto. La eudaimonía no es un estado pasivo sino una actividad: la actividad del alma conforme a la virtud. Es el bien supremo al que todos aspiran.'
+    },
+    {
+      q: '¿Qué diferencia fundamental separa a Aristóteles de Platón en metafísica?',
+      options: [
+        'Aristóteles cree en un mundo de Ideas separadas',
+        'Aristóteles defiende el realismo inmanente: las formas están en las cosas',
+        'Aristóteles niega la existencia de la verdad',
+        'Aristóteles es materialista puro'
+      ],
+      correct: 1,
+      feedback: 'Correcto. Frente al idealismo platónico (Ideas trascendentes), Aristóteles sostiene que las formas son inmanentes: están en las cosas, no en un mundo separado. Es el "primer empirista", aunque valora lo racional sobre lo sensible.'
+    },
+    {
+      q: '¿Qué es la phrónesis?',
+      options: [
+        'La ciencia demostrativa de lo necesario',
+        'La intuición de los primeros principios',
+        'La prudencia: virtud intelectual que guía la acción moral',
+        'El arte de producir objetos'
+      ],
+      correct: 2,
+      feedback: 'Correcto. La phrónesis (prudencia) es la virtud intelectual práctica que permite deliberar bien sobre lo conveniente en cada circunstancia. Es clave para las virtudes éticas.'
+    },
+    {
+      q: '¿Qué significa "horror vacui" en la física aristotélica?',
+      options: [
+        'El miedo al vacío que sienten los filósofos',
+        'La naturaleza huye del vacío: el universo es un plenum lleno',
+        'El vacío es el origen de todas las cosas',
+        'El espacio es un contenedor absoluto'
+      ],
+      correct: 1,
+      feedback: 'Correcto. Aristóteles rechaza el vacío: la naturaleza lo "huye". El universo es un plenum (plenamente lleno), finito y esférico, sin espacio exterior. Esta idea dominó hasta la revolución científica del s. XVII.'
+    }
+  ];
+
+  let currentQ = 0;
+  let score = 0;
+  let answered = false;
+
+  const qNum = document.getElementById('qNum');
+  const qCounter = document.getElementById('qCounter');
+  const qText = document.getElementById('qText');
+  const qOptions = document.getElementById('qOptions');
+  const qFeedback = document.getElementById('qFeedback');
+  const qNext = document.getElementById('qNext');
+
+  function renderQuestion() {
+    answered = false;
+    const q = quizData[currentQ];
+    qNum.textContent = `PREGUNTA ${toRoman(currentQ + 1)}`;
+    qCounter.textContent = `${currentQ + 1} / ${quizData.length}`;
+    qText.textContent = q.q;
+    qOptions.innerHTML = '';
+    qFeedback.className = 'quiz-feedback';
+    qFeedback.textContent = '';
+    qNext.disabled = true;
+
+    q.options.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-option';
+      btn.textContent = opt;
+      btn.onclick = () => selectAnswer(i, btn);
+      qOptions.appendChild(btn);
+    });
+  }
+
+  function selectAnswer(i, btn) {
+    if (answered) return;
+    answered = true;
+    const q = quizData[currentQ];
+    const options = document.querySelectorAll('.quiz-option');
+    options.forEach(o => o.classList.add('disabled'));
+
+    if (i === q.correct) {
+      btn.classList.add('correct');
+      score++;
+      qFeedback.className = 'quiz-feedback correct show';
+      qFeedback.innerHTML = `<strong>✓ Correcto.</strong> ${q.feedback}`;
+    } else {
+      btn.classList.add('wrong');
+      options[q.correct].classList.add('correct');
+      qFeedback.className = 'quiz-feedback wrong show';
+      qFeedback.innerHTML = `<strong>✗ Incorrecto.</strong> ${q.feedback}`;
+    }
+    qNext.disabled = false;
+    qNext.textContent = currentQ === quizData.length - 1 ? 'Ver resultado' : 'Siguiente →';
+  }
+
+  qNext.onclick = () => {
+    currentQ++;
+    if (currentQ < quizData.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  };
+
+  function showResult() {
+    const container = document.getElementById('quizContainer');
+    const pct = Math.round((score / quizData.length) * 100);
+    let msg = '';
+    if (pct === 100) msg = '¡Excelente! Dominas el pensamiento aristotélico. Ἄριστα (¡óptimo!).';
+    else if (pct >= 75) msg = 'Muy bien. Conoces bien a Aristóteles. Repasa los detalles para alcanzar la sophía.';
+    else if (pct >= 50) msg = 'Buen comienzo. Revisa las secciones de metafísica y ética para consolidar.';
+    else msg = 'Te recomendamos releer los apuntes. Recuerda: "todos los hombres desean por naturaleza saber".';
+
+    container.innerHTML = `
+      <div class="quiz-result">
+        <div class="q-num">RESULTADO FINAL</div>
+        <div class="score">${score} / ${quizData.length}</div>
+        <div style="font-family:'Cinzel',serif;color:var(--gold);letter-spacing:3px;margin-bottom:1rem">${pct}%</div>
+        <div class="msg">${msg}</div>
+        <button class="quiz-btn" onclick="location.reload()">Reintentar</button>
+      </div>
+    `;
+  }
+
+  function toRoman(num) {
+    const romans = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+    return romans[num-1] || num;
+  }
+
+  renderQuestion();
+</script>
+
+</body>
+</html>

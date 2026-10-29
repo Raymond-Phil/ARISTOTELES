@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UD 3: Aristóteles (384-322 a.C.) - Realismo Filosófico y Sistema Enciclopédico</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            500: '#c85a32',
+                            600: '#b44c28',
+                            700: '#943b1d',
+                            900: '#521d0b',
+                        },
+                        greekGold: {
+                            400: '#fbbf24',
+                            500: '#d97706',
+                            600: '#b45309',
+                        },
+                        navy: {
+                            800: '#0f172a',
+                            900: '#090d16',
+                            950: '#04060b'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Courier New', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Academic & Greek Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(200, 90, 50, 0.15);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+        }
+        .flip-card {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(200, 90, 50, 0.4);
+            border-radius: 4px;
+        }
+        .greek-pattern {
+            background-color: transparent;
+            background-image: radial-gradient(#c85a32 0.75px, transparent 0.75px), radial-gradient(#c85a32 0.75px, #fdf8f6 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0,15px 15px;
+            opacity: 0.04;
+        }
+        .dark .greek-pattern {
+            background-image: radial-gradient(#d97706 0.75px, transparent 0.75px), radial-gradient(#d97706 0.75px, #0f172a 0.75px);
+            opacity: 0.07;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col relative">
+
+    <div class="fixed inset-0 greek-pattern pointer-events-none z-0"></div>
+
+    <!-- TOP HEADER / NAV -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-terracotta-500/20 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 gap-2 sm:gap-4">
+                
+                <!-- Brand Title -->
+                <div class="flex items-center space-x-3 shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-terracotta-600 to-greekGold-500 flex items-center justify-center text-white shadow-md font-serif font-bold text-xl">
+                        Α
+                    </div>
+                    <div>
+                        <h1 class="font-serif font-bold text-base sm:text-xl text-slate-900 dark:text-greekGold-400 leading-tight">
+                            Aristóteles <span class="text-xs font-sans px-2 py-0.5 rounded-full bg-terracotta-500/10 text-terracotta-600 dark:text-greekGold-400 border border-terracotta-500/20 font-medium">384–322 a.C.</span>
+                        </h1>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 hidden md:block">UD 3: El Estagirita • El Primer Empirista y el Tratado Sistemático</p>
+                    </div>
+                </div>
+
+                <!-- Global Search & Actions -->
+                <div class="flex items-center space-x-2 sm:space-x-3 w-full justify-end">
+                    <!-- Search Bar -->
+                    <div class="relative max-w-xs w-full hidden sm:block">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-400"></i>
+                        <input type="text" id="notes-search-input" onkeyup="handleNotesSearch()" placeholder="Buscar término (ej: Hilemorfismo)..." class="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 focus:outline-none focus:border-terracotta-500 text-slate-800 dark:text-slate-200">
+                    </div>
+
+                    <!-- Bilingual Modal Toggle Button -->
+                    <button onclick="toggleModal('modal-citations')" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-terracotta-500/10 hover:bg-terracotta-500/20 text-terracotta-700 dark:text-greekGold-400 border border-terracotta-500/30 transition flex items-center gap-1.5 shrink-0">
+                        <i class="fa-solid fa-language text-sm"></i>
+                        <span class="hidden md:inline">Citas Bilingües</span> (ES/FR)
+                    </button>
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" onclick="toggleDarkMode()" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-greekGold-400 hover:bg-slate-300 dark:hover:bg-slate-700 transition shrink-0" title="Cambiar Tema">
+                        <i id="theme-icon" class="fa-solid fa-moon text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TABS NAVIGATION -->
+            <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto custom-scrollbar pb-2 pt-1 text-xs sm:text-sm font-medium border-t border-slate-200 dark:border-slate-800/80">
+                <button onclick="switchTab('tab-0')" id="nav-tab-0" class="tab-btn active-tab px-3 py-2 rounded-lg whitespace-nowrap transition flex items-center gap-2">
+                    <i class="fa-solid fa-hourglass-start"></i> 0. Vida & Obras
+                </button>
+                <button onclick="switchTab('tab-1')" id="nav-tab-1" class="tab-btn px-3 py-2 rounded-lg whitespace-nowrap transition flex items-center gap-2">
+                    <i class="fa-solid fa-atom"></i> 1. Metafísica & Física
+                </button>
+                <button onclick="switchTab('tab-2')" id="nav-tab-2" class="tab-btn px-3 py-2 rounded-lg whitespace-nowrap transition flex items-center gap-2">
+                    <i class="fa-solid fa-brain"></i> 2. Epistemología & Lógica
+                </button>
+                <button onclick="switchTab('tab-3')" id="nav-tab-3" class="tab-btn px-3 py-2 rounded-lg whitespace-nowrap transition flex items-center gap-2">
+                    <i class="fa-solid fa-user-large"></i> 3. Antropología
+                </button>
+                <button onclick="switchTab('tab-4')" id="nav-tab-4" class="tab-btn px-3 py-2 rounded-lg whitespace-nowrap transition flex items-center gap-2">
+                    <i class="fa-solid fa-scale-balanced"></i> 4. Ética & Virtud
+                </button>
+                <button onclick="switchTab('tab-5')" id="nav-tab-5" class="tab-btn px-3 py-2 rounded-lg whitespace-nowrap transition flex items-center gap-2">
+                    <i class="fa-solid fa-building-columns"></i> 5. Política & Polis
+                </button>
+                <button onclick="switchTab('tab-6')" id="nav-tab-6" class="tab-btn px-3 py-2 rounded-lg whitespace-nowrap transition flex items-center gap-2">
+                    <i class="fa-solid fa-network-wired"></i> 6. Esquema & Test
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BILINGUAL BANNER TICKER -->
+    <div class="bg-gradient-to-r from-navy-900 via-terracotta-900 to-navy-950 text-greekGold-400 py-2 px-4 text-xs sm:text-sm border-b border-terracotta-500/20 shadow-inner z-10">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
+                <span class="bg-greekGold-500 text-slate-950 text-[10px] font-bold uppercase px-2 py-0.5 rounded font-mono">FR / ES</span>
+                <span id="ticker-quote" class="italic font-serif transition-opacity duration-500">
+                    « Tous les hommes désirent naturellement savoir » — «Todos los hombres desean por naturaleza saber» (Métaphysique, 980a)
+                </span>
+            </div>
+            <button onclick="rotateQuote()" class="text-xs hover:text-white text-greekGold-400 flex items-center gap-1 transition ml-2 shrink-0">
+                <i class="fa-solid fa-arrows-rotate"></i> <span class="hidden sm:inline">Siguiente cita</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 z-10">
+
+        <!-- SEARCH RESULTS CONTAINER (Triggered by Search Input) -->
+        <div id="search-results-panel" class="hidden glass-panel p-6 rounded-2xl mb-6 border-2 border-terracotta-500 space-y-4">
+            <div class="flex items-center justify-between">
+                <h3 class="font-serif font-bold text-lg text-terracotta-600 dark:text-greekGold-400 flex items-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass"></i> Resultados de Búsqueda
+                </h3>
+                <button onclick="clearSearch()" class="text-xs px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300">
+                    <i class="fa-solid fa-xmark"></i> Cerrar Búsqueda
+                </button>
+            </div>
+            <div id="search-results-content" class="space-y-3 text-xs sm:text-sm"></div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TAB 0: VIDA, OBRAS Y CONTEXTO HISTÓRICO -->
+        <!-- ========================================== -->
+        <section id="tab-0" class="tab-content space-y-8">
+            <div class="bg-gradient-to-r from-terracotta-500/10 via-slate-500/5 to-transparent p-6 rounded-2xl border border-terracotta-500/20">
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-greekGold-400 mb-2">
+                    0. Vida, Obra y Contexto Histórico
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    Aristóteles (384-322 a.C.), nacido en Estagira, representa la culminación de la filosofía clásica griega. Su obra integra la observación empírica detallada con la más rigurosa sistematización lógica, marcando la transición de la Grecia de las polis independientes al helenismo imperial macedonio.
+                </p>
+            </div>
+
+            <!-- INTERACTIVE TIMELINE (384 - 322 a.C.) -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-timeline text-terracotta-500"></i> Cronología Vital de Aristóteles
+                    </h3>
+                    <span class="text-xs text-slate-500">Haz clic en cada hito para explorar detalles</span>
+                </div>
+
+                <!-- Timeline Navigation Bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
+                    <button onclick="showTimelineDetail('t1')" id="btn-t1" class="timeline-btn p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-left hover:border-terracotta-500 transition active-timeline">
+                        <span class="text-xs font-mono font-bold text-terracotta-600 dark:text-greekGold-400 block">384 a.C.</span>
+                        <span class="text-xs font-medium">Estagira & Origen</span>
+                    </button>
+                    <button onclick="showTimelineDetail('t2')" id="btn-t2" class="timeline-btn p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-left hover:border-terracotta-500 transition">
+                        <span class="text-xs font-mono font-bold text-terracotta-600 dark:text-greekGold-400 block">367–347 a.C.</span>
+                        <span class="text-xs font-medium">Academia de Platón</span>
+                    </button>
+                    <button onclick="showTimelineDetail('t3')" id="btn-t3" class="timeline-btn p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-left hover:border-terracotta-500 transition">
+                        <span class="text-xs font-mono font-bold text-terracotta-600 dark:text-greekGold-400 block">347–335 a.C.</span>
+                        <span class="text-xs font-medium">Exilio & Alejandro</span>
+                    </button>
+                    <button onclick="showTimelineDetail('t4')" id="btn-t4" class="timeline-btn p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-left hover:border-terracotta-500 transition">
+                        <span class="text-xs font-mono font-bold text-terracotta-600 dark:text-greekGold-400 block">335–323 a.C.</span>
+                        <span class="text-xs font-medium">Fundación del Liceo</span>
+                    </button>
+                    <button onclick="showTimelineDetail('t5')" id="btn-t5" class="timeline-btn p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-left hover:border-terracotta-500 transition">
+                        <span class="text-xs font-mono font-bold text-terracotta-600 dark:text-greekGold-400 block">323–322 a.C.</span>
+                        <span class="text-xs font-medium">Calcis & Muerte</span>
+                    </button>
+                </div>
+
+                <!-- Timeline Dynamic Content Display -->
+                <div id="timeline-display" class="bg-slate-100 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200 dark:border-slate-800 transition-all">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- TRANSITION: PLATONIC DIALOGUE TO ARISTOTELIAN TREATISE -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+                <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-book-bookmark text-terracotta-500"></i> Del Diálogo Platónico al Tratado Aristotélico (*Akroastikoí Lógoi*)
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Platón escribió en diálogos dramáticos, abiertos y poéticos. Aristóteles rompió con este modelo e instauró el <strong>tratado sistemático o discurso monológico (*pragmateia*)</strong>, caracterizado por el orden conceptual, la clasificación técnica y la exposición directa para sus alumnos (*akroastikoí lógoi*).
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-blue-500 space-y-2">
+                        <span class="font-bold text-blue-600 dark:text-blue-400">Escritos Exotéricos (Perdidos)</span>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Destinados al público general fuera del Liceo. Redactados en forma de diálogo literario en su juventud platonizante (ej. <em>Eudemo</em>, <em>Protréptico</em>). De ellos solo conservamos fragmentos e influencias indirectas.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-terracotta-500 space-y-2">
+                        <span class="font-bold text-terracotta-600 dark:text-greekGold-400">Escritos Esotéricos o Acroamáticos (Conservados)</span>
+                        <p class="text-slate-600 dark:text-slate-300">
+                            Apuntes de lección y manuales de trabajo interno para el Liceo. Tras estar ocultos siglo y medio, fueron ordenados y publicados por <strong>Andrónico de Rodas</strong> en el siglo I a.C., configurando la obra aristotélica actual.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THREE PERIODS OF WORKS -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100">
+                    Evolución Intelectual: Los 3 Períodos de Obras
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Period 1 -->
+                    <div class="glass-panel p-5 rounded-xl border-t-4 border-blue-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-blue-500">Período 1 (367–347 a.C.)</span>
+                        <h4 class="font-bold text-base text-slate-900 dark:text-slate-100">Influencia Platónica Directa</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Defensa de la inmortalidad del alma, la reminiscencia y la vida contemplativa. Diálogos como <em>Eudemo</em> y <em>Protréptico</em>.
+                        </p>
+                    </div>
+
+                    <!-- Period 2 -->
+                    <div class="glass-panel p-5 rounded-xl border-t-4 border-amber-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-amber-500">Período 2 (347–335 a.C.)</span>
+                        <h4 class="font-bold text-base text-slate-900 dark:text-slate-100">Transición Crítica (Assos-Mitilene)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Crítica a la teoría de las Ideas separadas. Introducción del Motor Inmóvil en <em>Sobre la Filosofía</em> y primeras versiones de <em>Metafísica</em> e <em>Historia de los Animales</em>.
+                        </p>
+                    </div>
+
+                    <!-- Period 3 -->
+                    <div class="glass-panel p-5 rounded-xl border-t-4 border-terracotta-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-terracotta-500">Período 3 (335–322 a.C.)</span>
+                        <h4 class="font-bold text-base text-slate-900 dark:text-slate-100">Madurez Sistemática en el Liceo</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Investigaciones empírico-sistemáticas: <em>Órganon</em> (Lógica), <em>Metafísica</em>, <em>Física</em>, <em>De Anima</em>, <em>Ética a Nicómaco</em> y <em>Política</em>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 1: METAFÍSICA, COSMOLOGÍA Y FÍSICA -->
+        <!-- ========================================== -->
+        <section id="tab-1" class="tab-content space-y-8 hidden">
+            <div class="bg-gradient-to-r from-terracotta-500/10 via-slate-500/5 to-transparent p-6 rounded-2xl border border-terracotta-500/20">
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-greekGold-400 mb-2">
+                    1. Metafísica, Cosmología y Problemas de la Física
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    «Todos los hombres desean por naturaleza saber» (*Metafísica*, 980a). La <strong>Filosofía Primera o Metafísica</strong> investiga los principios supremos y causas del ser en cuanto ser (*Ontología*) y de la Sustancia Suprema (*Teología*).
+                </p>
+            </div>
+
+            <!-- COMPARATIVE TABLE: PLATÓN VS ARISTÓTELES -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+                <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-code-compare text-terracotta-500"></i> Idealismo Platónico vs. Realismo Aristotélico
+                </h3>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-200/70 dark:bg-slate-800/80 text-slate-900 dark:text-greekGold-400 font-serif">
+                                <th class="p-3 font-bold border-b border-slate-300 dark:border-slate-700">Aspecto</th>
+                                <th class="p-3 font-bold border-b border-slate-300 dark:border-slate-700">Platón (Idealismo Dualista)</th>
+                                <th class="p-3 font-bold border-b border-slate-300 dark:border-slate-700 bg-terracotta-500/10">Aristóteles (Realismo Inmanente)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+                            <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                                <td class="p-3 font-bold text-slate-900 dark:text-slate-200">Estructura Real</td>
+                                <td class="p-3"><strong>Dualismo Trascendente:</strong> Mundo Sensible (falso/cambiante) vs. Mundo Inteligible de Ideas separadas.</td>
+                                <td class="p-3 bg-terracotta-500/5"><strong>Inmanencia de las Formas:</strong> Compuestos de Materia y Forma (*Hilemorfismo*). No hay Ideas flotando separadas.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                                <td class="p-3 font-bold text-slate-900 dark:text-slate-200">Explicación del Cambio</td>
+                                <td class="p-3">Explicado míticamente por la acción del Demiurgo sobre la materia informe.</td>
+                                <td class="p-3 bg-terracotta-500/5">Explicado racionalmente por las <strong>4 Causas</strong> y el paso de la <strong>Potencia al Acto</strong>.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                                <td class="p-3 font-bold text-slate-900 dark:text-slate-200">Conocimiento</td>
+                                <td class="p-3">Innato (*Reminiscencia / Anámnesis*). Desprecio por los sentidos.</td>
+                                <td class="p-3 bg-terracotta-500/5">Empírico-Racional (*Abstracción*). La mente nace como <em>Tabula Rasa</em>. Los sentidos son origen de la ciencia.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Critique Points -->
+                <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-xs sm:text-sm space-y-1">
+                    <span class="font-bold text-amber-700 dark:text-greekGold-400">Tesis Críticas contra las Ideas de Platón:</span>
+                    <ul class="list-disc list-inside text-slate-700 dark:text-slate-300 space-y-1">
+                        <li><strong>No explican el movimiento:</strong> Ideas inmutables y estáticas no pueden causar el cambio físico observable.</li>
+                        <li><strong>Separación insalvable:</strong> La 'participación' platónica es una metáfora poética sin valor explicativo.</li>
+                        <li><strong>Argumento del Tercer Hombre:</strong> Exige un tercer referente para explicar la semejanza entre el individuo y su Idea, generando una regresión infinita.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- HILEMORFISMO & TEORÍA DE LA SUSTANCIA -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-cube text-terracotta-500"></i> Hilemorfismo y Sustancia (*Ousía*)
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">La sustancia es el ser por antonomasia. Toda sustancia concreta es un compuesto indisoluble de Materia (*Hylé*) y Forma (*Morphé*).</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Sustancia Primera vs Segunda -->
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+                        <h4 class="font-serif font-bold text-base text-terracotta-600 dark:text-greekGold-400">Niveles de Sustancia (*Ousía*)</h4>
+                        <div class="space-y-2 text-xs text-slate-600 dark:text-slate-300">
+                            <p>• <strong>Sustancia Primera:</strong> El individuo concreto e individual (ej. "Sócrates", "este caballo"). Sujeto de predificación que no se predica de nada.</p>
+                            <p>• <strong>Sustancia Segunda:</strong> La esencia universal o especie/género (ej. "ser humano", "animal"). Predicado esencial atribuible a las sustancias primeras.</p>
+                            <p>• <strong>Accidentes:</strong> Cualidades contingentes que inhieren en la sustancia (cantidad, cualidad, lugar, tiempo, etc. Ej. "Sócrates es sabio y está en Atenas").</p>
+                        </div>
+                    </div>
+
+                    <!-- Materia Prima vs Próxima -->
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+                        <h4 class="font-serif font-bold text-base text-terracotta-600 dark:text-greekGold-400">Niveles de Materia (*Hylé*)</h4>
+                        <div class="space-y-2 text-xs text-slate-600 dark:text-slate-300">
+                            <p>• <strong>Materia Prima:</strong> Sustrato indeterminado e incognoscible, pura potencialidad separada de toda forma (análoga al <em>Ápeiron</em> de Anaximandro). Principio de individuación.</p>
+                            <p>• <strong>Materia Próxima:</strong> Los componentes físicos inmediatos y determinados de una sustancia (ej. en un hombre: huesos, carne, órganos).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTO Y POTENCIA (SOLUTION TO PARMENIDES) -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+                <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-bolt text-terracotta-500"></i> Acto (*Enérgeia / Entelecheia*) y Potencia (*Dýnamis*)
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Parménides afirmaba que el movimiento era imposible por suponer el paso del No-Ser al Ser. Aristóteles resuelve este dilema introduciendo el <strong>Ser en Potencia</strong>: el cambio no es la creación desde la nada, sino la <strong>actualización de una capacidad real</strong> que la sustancia ya poseía potencialmente.
+                </p>
+
+                <div class="p-4 rounded-xl bg-terracotta-500/10 border border-terracotta-500/20 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-serif italic">
+                    "Una semilla es una semilla en <strong>Acto</strong> y un árbol en <strong>Potencia</strong>. Al germinar y crecer, actualiza su forma propia pasando de la potencia al acto."
+                </div>
+            </div>
+
+            <!-- INTERACTIVE 4 CAUSES DIAGRAM -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-diagram-next text-terracotta-500"></i> La Teoría de las Cuatro Causas
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">Conocer científicamente algo es conocer sus causas (*Física* II, 3). Haz clic en cada causa para ver el ejemplo de la estatua de bronce o el árbol:</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <button onclick="selectCause('material')" id="cause-btn-material" class="cause-card p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-terracotta-500 text-left transition hover:scale-[1.02]">
+                        <span class="text-xs font-mono font-bold text-terracotta-500 uppercase block">Causa 1</span>
+                        <h4 class="font-bold text-base">Causa Material</h4>
+                        <p class="text-xs text-slate-500">Aquello de lo que algo está hecho.</p>
+                    </button>
+
+                    <button onclick="selectCause('formal')" id="cause-btn-formal" class="cause-card p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-transparent hover:border-terracotta-500/50 text-left transition hover:scale-[1.02]">
+                        <span class="text-xs font-mono font-bold text-blue-500 uppercase block">Causa 2</span>
+                        <h4 class="font-bold text-base">Causa Formal</h4>
+                        <p class="text-xs text-slate-500">La estructura, diseño o esencia.</p>
+                    </button>
+
+                    <button onclick="selectCause('eficiente')" id="cause-btn-eficiente" class="cause-card p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-transparent hover:border-terracotta-500/50 text-left transition hover:scale-[1.02]">
+                        <span class="text-xs font-mono font-bold text-emerald-500 uppercase block">Causa 3</span>
+                        <h4 class="font-bold text-base">Causa Eficiente</h4>
+                        <p class="text-xs text-slate-500">El agente o fuerza generadora.</p>
+                    </button>
+
+                    <button onclick="selectCause('final')" id="cause-btn-final" class="cause-card p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-transparent hover:border-terracotta-500/50 text-left transition hover:scale-[1.02]">
+                        <span class="text-xs font-mono font-bold text-purple-500 uppercase block">Causa 4</span>
+                        <h4 class="font-bold text-base">Causa Final (*Télos*)</h4>
+                        <p class="text-xs text-slate-500">El propósito o fin del cambio.</p>
+                    </button>
+                </div>
+
+                <!-- Cause Detail Display -->
+                <div id="cause-detail-display" class="p-5 rounded-xl bg-slate-200/60 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs sm:text-sm">
+                    <!-- Dynamic details via JS -->
+                </div>
+            </div>
+
+            <!-- PROBLEMS OF PHYSICS: TIME, PLACE & VACUUM -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- El Tiempo -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-serif font-bold text-slate-900 dark:text-greekGold-400">El Problema del Tiempo (*Física* IV)</h3>
+                        <i class="fa-solid fa-clock text-terracotta-500 text-xl"></i>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Definición célebre: <em>«El tiempo es el número del movimiento según el antes y el después»</em>.
+                    </p>
+                    <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li><strong>El "Ahora" (*to nyn*):</strong> Límite divisible e indivisible que conecta el pasado inexistente con el futuro por venir.</li>
+                        <li><strong>Relación necesaria con el Alma:</strong> El tiempo es una medida; si no hubiera un alma consciente para contar o medir, existiría el cambio físico pero no el tiempo cuantificado.</li>
+                    </ul>
+                </div>
+
+                <!-- El Lugar y el Vacío -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-serif font-bold text-slate-900 dark:text-greekGold-400">El Lugar (*Tópos*) y Rechazo del Vacío</h3>
+                        <i class="fa-solid fa-box text-terracotta-500 text-xl"></i>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Lugar: <em>«El límite inmóvil primero del cuerpo que contiene»</em> (ej. el cauce inmóvil del río frente al agua o el vaso transportable).
+                    </p>
+                    <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-1 list-disc list-inside">
+                        <li><strong>Horror Vacui:</strong> Rechazo absoluto del vacío. La naturaleza está llena (*plenum*).</li>
+                        <li>Sin medio que resista, la velocidad del movimiento sería infinita y no habrían 'lugares naturales' (arriba/abajo).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COSMOLOGY: SUBLUNAR, SUPRALUNAR & MOTOR INMÓVIL -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-earth-americas text-terracotta-500"></i> Cosmología Geocéntrica y las 55 Esferas
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">El Universo es finito, esférico y eterno. Dividido en dos regiones físicas radicalmente distintas:</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+                        <div class="font-bold text-terracotta-600 dark:text-greekGold-400 text-sm">Mundo Sublunar (Bajo la Luna)</div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Formado por 4 elementos corruptibles (Tierra, Agua, Aire, Fuego). Sujeto a generación, corrupción y movimiento rectilíneo imperfecto hacia sus lugares naturales.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+                        <div class="font-bold text-blue-600 dark:text-blue-400 text-sm">Mundo Supralunar (Cielos)</div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Compuesto de <strong>Éter o Quintaesencia</strong> (incunfudible, inmutable, incorruptible). Movimiento circular perfecto continuo conducido por 55 esferas concéntricas materiales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Motor Inmóvil -->
+                <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs sm:text-sm space-y-2">
+                    <div class="font-bold text-amber-700 dark:text-greekGold-400 flex items-center gap-2">
+                        <i class="fa-solid fa-sun"></i> El Motor Inmóvil (*Metafísica* Λ)
+                    </div>
+                    <p class="text-slate-700 dark:text-slate-300">
+                        Causa última del movimiento universal. Es <strong>Acto Puro</strong> sin potencia, inmaterial y perfecto. Mueve sin moverse actuando como <strong>Causa Final</strong> (atrayendo al cosmos por amor/deseo). Su actividad eterna es el «pensamiento del pensamiento» (*nóesis noéseos*).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 2: TEORÍA DEL CONOCIMIENTO Y LÓGICA -->
+        <!-- ========================================== -->
+        <section id="tab-2" class="tab-content space-y-8 hidden">
+            <div class="bg-gradient-to-r from-terracotta-500/10 via-slate-500/5 to-transparent p-6 rounded-2xl border border-terracotta-500/20">
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-greekGold-400 mb-2">
+                    2. Teoría del Conocimiento (Epistemología) y Órganon
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    Para Aristóteles, el conocimiento consiste en la <strong>aprehensión de la forma (*eîdos*) sin la materia (*hylé*)</strong> (*De Anima* II, 12). La mente humana carece de ideas innatas: nace como una *Tabula Rasa* que abstrae los universales a partir de la experiencia sensible.
+                </p>
+            </div>
+
+            <!-- PROCESS STEPPER: FROM SENSES TO UNIVERSAL -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-diagram-project text-terracotta-500"></i> El Proceso de Abstracción (*Apháiresis*) en 4 Etapas
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">Cómo la mente eleva el dato sensible particular hacia la ciencia universal:</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Step 1 -->
+                    <div class="bg-slate-100 dark:bg-slate-900 p-4 rounded-xl border-t-4 border-blue-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-blue-500">Etapa 1</span>
+                        <h4 class="font-bold text-sm">Sentidos Externos (*Aísthesis*)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">
+                            Recepción pasiva de las formas sensibles de objetos particulares (color, sonido, textura).
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-slate-100 dark:bg-slate-900 p-4 rounded-xl border-t-4 border-amber-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-amber-500">Etapa 2</span>
+                        <h4 class="font-bold text-sm">Sentido Común, Memoria e Imaginación</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">
+                            Unifica sensibles comunes y conserva imágenes persistentes (*Phantásmata*) en el alma.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-slate-100 dark:bg-slate-900 p-4 rounded-xl border-t-4 border-terracotta-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-terracotta-500">Etapa 3</span>
+                        <h4 class="font-bold text-sm">Intelecto Agente (*Nous Poietikós*)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">
+                            Actúa como luz intelectual: ilumina la imagen y despoja la forma universal de su materia individual.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="bg-slate-100 dark:bg-slate-900 p-4 rounded-xl border-t-4 border-emerald-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-emerald-500">Etapa 4</span>
+                        <h4 class="font-bold text-sm">Intelecto Paciente (*Nous Pathetikós*)</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">
+                            Recibe la esencia universal abstraída (*Tabula Rasa*) y formula el concepto y el juicio científico (*Epistēmē*).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEGREES OF KNOWLEDGE & CLASSIFICATION OF SABERES -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Grados del Saber -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <h3 class="text-lg font-serif font-bold text-slate-900 dark:text-greekGold-400">Jerarquía y Grados del Conocimiento</h3>
+                    <div class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                        <p>1. <strong>Experiencia (*Empeiría*):</strong> Acumulación de recuerdos prácticos sobre casos particulares ("qué sucede").</p>
+                        <p>2. <strong>Arte / Técnica (*Téchnē*):</strong> Descubrimiento de reglas generales para producir cosas con un *logos* verdadero.</p>
+                        <p>3. <strong>Ciencia (*Epistēmē*):</strong> Conocimiento demostrativo de lo universal y necesario por sus causas ("por qué sucede").</p>
+                        <p>4. <strong>Sabiduría (*Sophía*):</strong> Cúspide del saber. Síntesis de Intuición (*Nous*) de principios y Ciencia (*Epistēmē*) de causas supremas.</p>
+                    </div>
+                </div>
+
+                <!-- Clasificación de Saberes -->
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <h3 class="text-lg font-serif font-bold text-slate-900 dark:text-greekGold-400">Clasificación de las Ciencias</h3>
+                    <div class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                        <p>• <strong>Saberes Teóricos (Contemplativos):</strong> Buscan la verdad por sí misma. Universales y necesarios (*Metafísica, Física, Matemáticas*).</p>
+                        <p>• <strong>Saberes Prácticos:</strong> Orientan la acción humana y la praxis. Contingentes (*Ética, Política*).</p>
+                        <p>• <strong>Saberes Poéticos (Productivos):</strong> Orientados a la producción útil o artística (*Técnica, Poética, Retórica*).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LA LÓGICA COMO ÓRGANON Y EL SILOGISMO -->
+            <div class="glass-panel p-6 rounded-2xl space-y-4 shadow-sm">
+                <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-tree text-terracotta-500"></i> La Lógica Instrumental (*Órganon*) y el Silogismo
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                    Aristóteles no considera la Lógica como una ciencia teórica más, sino como la propedéutica o <strong>herramienta metodológica indispensable (*Órganon*)</strong> para todas las ciencias. Su creación cumbre es la teoría del <strong>Silogismo Categorico</strong>:
+                </p>
+
+                <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-amber-500 text-xs sm:text-sm font-mono space-y-1">
+                    <p class="text-slate-500">// Ejemplo Clásico de Silogismo Deducido por Causas:</p>
+                    <p><strong>Premisa Mayor:</strong> Todos los hombres son mortales.</p>
+                    <p><strong>Premisa Menor:</strong> Sócrates es hombre.</p>
+                    <p class="text-terracotta-600 dark:text-greekGold-400 font-bold"><strong>Conclusión:</strong> Luego, Sócrates es mortal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 3: ANTROPOLOGÍA -->
+        <!-- ========================================== -->
+        <section id="tab-3" class="tab-content space-y-8 hidden">
+            <div class="bg-gradient-to-r from-terracotta-500/10 via-slate-500/5 to-transparent p-6 rounded-2xl border border-terracotta-500/20">
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-greekGold-400 mb-2">
+                    3. Teoría Antropológica: Hilemorfismo Humano
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    El ser humano es una <strong>unidad sustancial indisoluble de Cuerpo (*Materia*) y Alma (*Forma y Principio Vital*)</strong>, superando tajantemente el dualismo accidental platónico que veía al cuerpo como prisión del alma.
+                </p>
+            </div>
+
+            <!-- HILEMORFISMO HUMANO & CRÍTICA AL DUALISMO -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-panel p-6 rounded-2xl border-l-4 border-terracotta-500 space-y-3">
+                    <h3 class="text-lg font-serif font-bold text-slate-900 dark:text-greekGold-400">Unidad Sustancial Cuerpo-Alma</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        El alma es definible como <em>«el acto primero de un cuerpo natural organizado que tiene la vida en potencia»</em>. Alma y cuerpo no son dos sustancias distintas unidas a la fuerza, sino dos principios complementarios de una única sustancia viva.
+                    </p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border-l-4 border-blue-500 space-y-3">
+                    <h3 class="text-lg font-serif font-bold text-slate-900 dark:text-blue-400">El Problema de la Inmortalidad</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Puesto que el alma vegetativa y sensitiva dependen orgánicamente del cuerpo, se destruyen con la muerte biológica. No hay inmortalidad personal del alma individual en Aristóteles. Sin embargo, el estatus del Intelecto Agente inmaterial (*De Anima* III, 5) sigue siendo objeto de debate histórico.
+                    </p>
+                </div>
+            </div>
+
+            <!-- THREE TYPES OF SOUL -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-terracotta-500"></i> Los Tres Tipos o Funciones del Alma
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">Las facultades vitales se acumulan progresivamente en la escala biológica:</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Alma Vegetativa -->
+                    <div class="bg-slate-100 dark:bg-slate-900 p-5 rounded-xl border-t-4 border-emerald-500 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-serif font-bold text-slate-900 dark:text-emerald-400 text-base">Alma Vegetativa</h4>
+                            <i class="fa-solid fa-seedling text-emerald-500"></i>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Propia de las plantas. Funciones básicas de nutrición, crecimiento y reproducción. Sin sensación ni movimiento.
+                        </p>
+                    </div>
+
+                    <!-- Alma Sensitiva -->
+                    <div class="bg-slate-100 dark:bg-slate-900 p-5 rounded-xl border-t-4 border-amber-500 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-serif font-bold text-slate-900 dark:text-amber-400 text-base">Alma Sensitiva</h4>
+                            <i class="fa-solid fa-paw text-amber-500"></i>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Propia de los animales. Incluye lo vegetativo y añade percepción sensible, apetito, deseo, imaginación, memoria y movimiento local.
+                        </p>
+                    </div>
+
+                    <!-- Alma Racional -->
+                    <div class="bg-slate-100 dark:bg-slate-900 p-5 rounded-xl border-t-4 border-terracotta-500 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-serif font-bold text-slate-900 dark:text-greekGold-400 text-base">Alma Racional</h4>
+                            <i class="fa-solid fa-brain text-terracotta-500"></i>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Exclusiva del Ser Humano (*Zōon Logikón*). Incorpora todas las anteriores y suma el entendimiento teórico y la deliberación práctica.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 4: ÉTICA Y VIRTUD -->
+        <!-- ========================================== -->
+        <section id="tab-4" class="tab-content space-y-8 hidden">
+            <div class="bg-gradient-to-r from-terracotta-500/10 via-slate-500/5 to-transparent p-6 rounded-2xl border border-terracotta-500/20">
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-greekGold-400 mb-2">
+                    4. Ética: Eudaimonismo, Virtud y Justicia
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    La ética aristotélica es <strong>teleológica y eudaimonista</strong>: la acción humana se orienta hacia el Bien Supremo, que es la <strong>Felicidad (*Eudaimonía*)</strong>, alcanzada mediante la excelencia o virtud (*Aretē*).
+                </p>
+            </div>
+
+            <!-- TELEOLOGY & EUDAIMONIA -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+                <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-trophy text-terracotta-500"></i> La Felicidad (*Eudaimonía*) como Fin Supremo
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Aristóteles rechaza el intelectualismo socrático-platónico. La felicidad no es un conocimiento abstracto, sino la actividad propia del alma conforme a la razón (*Ética a Nicómaco* I, 7). Para alcanzar una eudaimonía humana completa se precisan:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
+                        <span class="font-bold text-terracotta-600 dark:text-greekGold-400">1. Bienes del Alma</span>
+                        <p class="text-slate-600 dark:text-slate-300">Posesión de virtudes éticas e intelectuales (el factor verdaderamente decisivo).</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
+                        <span class="font-bold text-terracotta-600 dark:text-greekGold-400">2. Bienes Corporales</span>
+                        <p class="text-slate-600 dark:text-slate-300">Salud física y vigor indispensable para ejercitar la acción.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1">
+                        <span class="font-bold text-terracotta-600 dark:text-greekGold-400">3. Bienes Exteriores</span>
+                        <p class="text-slate-600 dark:text-slate-300">Recursos materiales suficientes, amigos y fortuna moderada.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLASSIFICATION OF VIRTUES & MESÓTES -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-scale-unbalanced text-terracotta-500"></i> Clasificación de las Virtudes y Término Medio (*Mesótes*)
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">La virtud es un hábito voluntario adquirido (*Héxis*). Las virtudes se dividen en dos familias:</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Virtudes Dianoéticas -->
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+                        <h4 class="font-bold text-base text-blue-600 dark:text-blue-400">1. Virtudes Dianoéticas o Intelectuales</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">
+                            Perfeccionan el pensamiento reflexivo: <em>Téchnē</em> (Arte), <em>Epistēmē</em> (Ciencia), <strong>Phrónesis (Prudencia práctica)</strong>, <em>Nous</em> (Entendimiento) y <em>Sophía</em> (Sabiduría). La Prudencia (*Phrónesis*) es el faro que guía a la acción recta.
+                        </p>
+                    </div>
+
+                    <!-- Virtudes Éticas -->
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+                        <h4 class="font-bold text-base text-terracotta-600 dark:text-greekGold-400">2. Virtudes Éticas o del Carácter</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">
+                            Perfeccionan el deseo y las pasiones. Consisten en la elección del <strong>Término Medio relativo a nosotros (*Mesótes*)</strong>, determinado por la razón del hombre prudente entre dos extremos viciosos (Defecto y Exceso).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Interactive Mesótes Examples Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-slate-200/70 dark:bg-slate-800 text-slate-900 dark:text-greekGold-400">
+                                <th class="p-2.5 font-bold">Vicio por Defecto</th>
+                                <th class="p-2.5 font-bold bg-terracotta-500/10 text-terracotta-700 dark:text-greekGold-400">Virtud (Término Medio)</th>
+                                <th class="p-2.5 font-bold">Vicio por Exceso</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                            <tr>
+                                <td class="p-2.5 text-red-500">Cobardía</td>
+                                <td class="p-2.5 font-bold bg-terracotta-500/5 text-slate-900 dark:text-slate-100">Valor / Valentía</td>
+                                <td class="p-2.5 text-red-500">Temeridad</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 text-red-500">Insensibilidad</td>
+                                <td class="p-2.5 font-bold bg-terracotta-500/5 text-slate-900 dark:text-slate-100">Templanza / Moderación</td>
+                                <td class="p-2.5 text-red-500">Intemperancia / Libertinaje</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 text-red-500">Tacañería / Avaricia</td>
+                                <td class="p-2.5 font-bold bg-terracotta-500/5 text-slate-900 dark:text-slate-100">Liberalidad / Generosidad</td>
+                                <td class="p-2.5 text-red-500">Prodigalidad / Despilfarro</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- THEORY OF JUSTICE & EQUITY (EPIEÍKEIA) -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+                <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-gavel text-terracotta-500"></i> La Teoría de la Justicia y la Equidad (*Epieíkeia*)
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                    La Justicia es la virtud ética suprema por excelencia. Aristóteles distingue:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-amber-500 space-y-1">
+                        <span class="font-bold text-amber-600 dark:text-greekGold-400">Justicia Distributiva</span>
+                        <p class="text-slate-600 dark:text-slate-300">Reparto proporcional de bienes y honores según el mérito individual (<strong>Igualdad Geométrica</strong>).</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-blue-500 space-y-1">
+                        <span class="font-bold text-blue-600 dark:text-blue-400">Justicia Correctiva</span>
+                        <p class="text-slate-600 dark:text-slate-300">Restaura la igualdad tras un daño o contrato indebido (<strong>Igualdad Aritmética</strong>).</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-purple-500 space-y-1">
+                        <span class="font-bold text-purple-600 dark:text-purple-400">Equidad (*Epieíkeia*)</span>
+                        <p class="text-slate-600 dark:text-slate-300">Rectificación y adaptación de la ley universal abstracta ante las particularidades concretas del caso real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 5: POLÍTICA Y REGÍMENES -->
+        <!-- ========================================== -->
+        <section id="tab-5" class="tab-content space-y-8 hidden">
+            <div class="bg-gradient-to-r from-terracotta-500/10 via-slate-500/5 to-transparent p-6 rounded-2xl border border-terracotta-500/20">
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-greekGold-400 mb-2">
+                    5. Filosofía Política: La Polis y el Animal Político
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    «El hombre es por naturaleza un animal político» (*Zōon Politikón*, *Política* I, 2). La sociedad no nace de un pacto convencional artificial, sino de una exigencia natural de la propia esencia humana.
+                </p>
+            </div>
+
+            <!-- NATURAL ORIGIN OF SOCIETY STEPPER -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div>
+                    <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                        <i class="fa-solid fa-sitemap text-terracotta-500"></i> Génesis Natural de la Polis
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">La Polis es anterior lógicamente al individuo, igual que el todo precede a las partes en un organismo vivo:</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border-t-4 border-amber-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-amber-500">1. La Familia (*Oíkos*)</span>
+                        <h4 class="font-bold text-base">Núcleo Básico</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Satisface las necesidades cotidianas inmediatas (reproducción, alimento, convivencia diaria y servidumbre).
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border-t-4 border-blue-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-blue-500">2. La Aldea (*Kōmē*)</span>
+                        <h4 class="font-bold text-base">Unión de Familias</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Agrupación para cubrir necesidades no meramente cotidianas (intercambio comercial y defensa).
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900 border-t-4 border-terracotta-500 space-y-2">
+                        <span class="text-xs font-mono font-bold text-terracotta-500">3. La Polis (Ciudad-Estado)</span>
+                        <h4 class="font-bold text-base">Comunidad Autárquica</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Comunidad perfecta e independiente que no solo permite vivir, sino <strong>vivir bien (*eu zēn*)</strong> conforme a la virtud moral y la justicia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REGIMES MATRIX TABLE (FORMAS RECTAS VS DESVIADAS) -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+                <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-table text-terracotta-500"></i> Matriz de las Formas de Gobierno (*Política* III)
+                </h3>
+                <p class="text-xs text-slate-500">Clasificación resultante del análisis de más de 150 constituciones griegas reales:</p>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-200/70 dark:bg-slate-800 text-slate-900 dark:text-greekGold-400 font-serif">
+                                <th class="p-3 font-bold border-b border-slate-300 dark:border-slate-700">Gobernantes</th>
+                                <th class="p-3 font-bold border-b border-slate-300 dark:border-slate-700 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">Formas Rectas (Bien Común)</th>
+                                <th class="p-3 font-bold border-b border-slate-300 dark:border-slate-700 bg-red-500/10 text-red-700 dark:text-red-400">Formas Desviadas (Interés Particular)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+                            <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                                <td class="p-3 font-bold">Uno Solo</td>
+                                <td class="p-3 bg-emerald-500/5 font-bold text-emerald-600 dark:text-emerald-400">Monarquía / Monarquía Recta</td>
+                                <td class="p-3 bg-red-500/5 text-red-600 dark:text-red-400">Tiranía (Despotismo ególatra)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                                <td class="p-3 font-bold">Unos Pocos</td>
+                                <td class="p-3 bg-emerald-500/5 font-bold text-emerald-600 dark:text-emerald-400">Aristocracia (Gobierno de los Mejores)</td>
+                                <td class="p-3 bg-red-500/5 text-red-600 dark:text-red-400">Oligarquía (Gobierno de los ricos)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                                <td class="p-3 font-bold">La Mayoría</td>
+                                <td class="p-3 bg-emerald-500/5 font-bold text-emerald-600 dark:text-emerald-400">Politeia / República Constitucional</td>
+                                <td class="p-3 bg-red-500/5 text-red-600 dark:text-red-400">Democracia / Demagogia (Masa pobre contra ricos)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Politeia & Middle Class Panel -->
+                <div class="p-4 rounded-xl bg-terracotta-500/10 border border-terracotta-500/30 text-xs sm:text-sm space-y-2">
+                    <div class="font-bold text-terracotta-700 dark:text-greekGold-400 flex items-center gap-2">
+                        <i class="fa-solid fa-users"></i> La Importancia de la Clase Media y la *Politeia*
+                    </div>
+                    <p class="text-slate-700 dark:text-slate-300">
+                        Aristóteles defiende que la constitución ideal práctica para la mayoría de polis es la <strong>Politeia</strong> (mezcla equilibrada de oligarquía y democracia), sustentada en una <strong>clase media numerosa y sólida</strong> que actúa como freno moderador frente a las guerras de facciones entre ricos y pobres.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- TAB 6: HERRAMIENTAS, FLASHCARDS Y QUIZ -->
+        <!-- ========================================== -->
+        <section id="tab-6" class="tab-content space-y-8 hidden">
+            <div class="bg-gradient-to-r from-terracotta-500/10 via-slate-500/5 to-transparent p-6 rounded-2xl border border-terracotta-500/20">
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900 dark:text-greekGold-400 mb-2">
+                    6. Herramientas de Estudio, Términos Griegos y Test
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    Sintetiza tu estudio mediante el mapa conceptual interactivo, domina el vocabulario técnico griego con las tarjetas de memoria y comprueba tus conocimientos con el cuestionario de 10 preguntas.
+                </p>
+            </div>
+
+            <!-- GLOBAL CONCEPTUAL MAP (SVG) -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-4">
+                <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-sitemap text-terracotta-500"></i> Mapa Conceptual Global del Sistema Aristotélico
+                </h3>
+                <p class="text-xs text-slate-500">Haz clic en cualquier nodo para ver la síntesis de su concepto:</p>
+
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 overflow-x-auto">
+                    <svg class="w-full min-w-[700px] h-[360px]" viewBox="0 0 800 360">
+                        <!-- Connections -->
+                        <line x1="400" y1="40" x2="200" y2="120" stroke="#c85a32" stroke-width="2" />
+                        <line x1="400" y1="40" x2="600" y2="120" stroke="#c85a32" stroke-width="2" />
+                        <line x1="200" y1="120" x2="100" y2="220" stroke="#475569" stroke-width="2" />
+                        <line x1="200" y1="120" x2="300" y2="220" stroke="#475569" stroke-width="2" />
+                        <line x1="600" y1="120" x2="500" y2="220" stroke="#475569" stroke-width="2" />
+                        <line x1="600" y1="120" x2="700" y2="220" stroke="#475569" stroke-width="2" />
+                        <line x1="500" y1="220" x2="400" y2="310" stroke="#2563eb" stroke-width="2" />
+                        <line x1="500" y1="220" x2="600" y2="310" stroke="#d97706" stroke-width="2" />
+
+                        <!-- Nodes -->
+                        <g onclick="showMapNodeDetail('ousia')" class="cursor-pointer hover:opacity-80 transition">
+                            <rect x="300" y="15" width="200" height="50" rx="12" fill="#c85a32" />
+                            <text x="400" y="45" fill="#ffffff" font-weight="bold" font-size="14" text-anchor="middle">SUSTANCIA (OUSÍA)</text>
+                        </g>
+
+                        <g onclick="showMapNodeDetail('hilemorfismo')" class="cursor-pointer hover:opacity-80 transition">
+                            <rect x="120" y="100" width="160" height="45" rx="10" fill="#1e293b" stroke="#c85a32" stroke-width="2" />
+                            <text x="200" y="128" fill="#fbbf24" font-weight="bold" font-size="12" text-anchor="middle">Hilemorfismo</text>
+                        </g>
+
+                        <g onclick="showMapNodeDetail('teleologia')" class="cursor-pointer hover:opacity-80 transition">
+                            <rect x="520" y="100" width="160" height="45" rx="10" fill="#1e293b" stroke="#c85a32" stroke-width="2" />
+                            <text x="600" y="128" fill="#fbbf24" font-weight="bold" font-size="12" text-anchor="middle">Teleología (Télos)</text>
+                        </g>
+
+                        <g onclick="showMapNodeDetail('causas')" class="cursor-pointer hover:opacity-80 transition">
+                            <rect x="30" y="200" width="140" height="40" rx="8" fill="#334155" />
+                            <text x="100" y="225" fill="#ffffff" font-size="11" text-anchor="middle">Cuatro Causas</text>
+                        </g>
+
+                        <g onclick="showMapNodeDetail('acto-potencia')" class="cursor-pointer hover:opacity-80 transition">
+                            <rect x="230" y="200" width="140" height="40" rx="8" fill="#334155" />
+                            <text x="300" y="225" fill="#ffffff" font-size="11" text-anchor="middle">Acto y Potencia</text>
+                        </g>
+
+                        <g onclick="showMapNodeDetail('eudaimonia')" class="cursor-pointer hover:opacity-80 transition">
+                            <rect x="430" y="200" width="140" height="40" rx="8" fill="#c85a32" />
+                            <text x="500" y="225" fill="#ffffff" font-weight="bold" font-size="11" text-anchor="middle">Eudaimonía</text>
+                        </g>
+
+                        <g onclick="showMapNodeDetail('abstraccion')" class="cursor-pointer hover:opacity-80 transition">
+                            <rect x="630" y="200" width="140" height="40" rx="8" fill="#334155" />
+                            <text x="700" y="225" fill="#ffffff" font-size="11" text-anchor="middle">Abstracción (Nous)</text>
+                        </g>
+
+                        <g onclick="showMapNodeDetail('phronesis')" class="cursor-pointer hover:opacity-80 transition">
+                            <rect x="330" y="290" width="140" height="40" rx="8" fill="#2563eb" />
+                            <text x="400" y="315" fill="#ffffff" font-size="11" text-anchor="middle">Phrónesis (Prudencia)</text>
+                        </g>
+
+                        <g onclick="showMapNodeDetail('polis')" class="cursor-pointer hover:opacity-80 transition">
+                            <rect x="530" y="290" width="140" height="40" rx="8" fill="#d97706" />
+                            <text x="600" y="315" fill="#ffffff" font-size="11" text-anchor="middle">Zōon Politikón (Polis)</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div id="map-node-detail" class="p-4 rounded-xl bg-terracotta-500/10 border border-terracotta-500/20 text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium">
+                    Haz clic en cualquier casilla del mapa conceptual para ver su análisis.
+                </div>
+            </div>
+
+            <!-- GREEK GLOSSARY FLASHCARDS -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                            <i class="fa-solid fa-language text-terracotta-500"></i> Vocabulario Técnico Griego (*Flashcards*)
+                        </h3>
+                        <p class="text-xs text-slate-500">Haz clic en cada tarjeta para voltearla y revelar su definición filosófica.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" id="flashcards-container">
+                    <!-- Dynamic Flashcards JS -->
+                </div>
+            </div>
+
+            <!-- 10-QUESTION SELF-ASSESSMENT QUIZ -->
+            <div class="glass-panel p-6 rounded-2xl shadow-sm space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-serif font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check text-terracotta-500"></i> Cuestionario de Autoevaluación (10 Preguntas)
+                        </h3>
+                        <p class="text-xs text-slate-500">Comprueba tu nivel de maestría sobre la filosofía de Aristóteles.</p>
+                    </div>
+                    <div id="quiz-score-badge" class="px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-xs font-mono font-bold text-terracotta-600 dark:text-greekGold-400">
+                        Puntuación: 0 / 10
+                    </div>
+                </div>
+
+                <div id="quiz-container" class="space-y-6">
+                    <!-- Dynamic Quiz JS -->
+                </div>
+
+                <div class="flex justify-end">
+                    <button onclick="resetQuiz()" class="px-4 py-2 text-xs font-bold rounded-xl bg-terracotta-500 hover:bg-terracotta-600 text-white transition flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> Reiniciar Cuestionario
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-6 mt-12 bg-slate-100 dark:bg-slate-900 text-center text-xs text-slate-500 z-10">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p class="font-serif font-bold text-slate-700 dark:text-slate-300">Unidad Didáctica 3: Aristóteles (384–322 a.C.) • Ver 1.2</p>
+            <p>Diseñado para la enseñanza y estudio profundo del Realismo Clásico Griego y la Filosofía Antigua.</p>
+        </div>
+    </footer>
+
+    <!-- BILINGUAL CITATIONS MODAL -->
+    <div id="modal-citations" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden">
+        <div class="glass-panel max-w-2xl w-full p-6 rounded-2xl space-y-4 max-h-[85vh] overflow-y-auto custom-scrollbar border border-terracotta-500/30">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <h3 class="font-serif font-bold text-lg text-slate-900 dark:text-greekGold-400 flex items-center gap-2">
+                    <i class="fa-solid fa-quote-left text-terracotta-500"></i> Citas Aristotélicas Bilingües (Francés - Español)
+                </h3>
+                <button onclick="toggleModal('modal-citations')" class="text-slate-400 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4 text-xs sm:text-sm">
+                <!-- Quote 1 -->
+                <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-terracotta-500 space-y-2">
+                    <p class="font-serif italic font-bold text-slate-900 dark:text-greekGold-400">
+                        « Tous les hommes désirent naturellement savoir. »
+                    </p>
+                    <p class="text-slate-700 dark:text-slate-300 font-medium">
+                        "Todos los hombres desean por naturaleza saber."
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        <em>Métaphysique (Metafísica I, 1, 980a)</em> — Fundamento ontológico del impulso humano hacia la verdad universal.
+                    </p>
+                </div>
+
+                <!-- Quote 2 -->
+                <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-blue-500 space-y-2">
+                    <p class="font-serif italic font-bold text-slate-900 dark:text-blue-300">
+                        « L'homme est par nature un animal politique. »
+                    </p>
+                    <p class="text-slate-700 dark:text-slate-300 font-medium">
+                        "El hombre es por naturaleza un animal político (*Zōon Politikón*)."
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        <em>Politique (Política I, 2, 1253a)</em> — Afirmación del carácter social no convencional de la convivencia humana en la Polis.
+                    </p>
+                </div>
+
+                <!-- Quote 3 -->
+                <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-emerald-500 space-y-2">
+                    <p class="font-serif italic font-bold text-slate-900 dark:text-emerald-300">
+                        « L'âme est en quelque sorte toutes les choses. »
+                    </p>
+                    <p class="text-slate-700 dark:text-slate-300 font-medium">
+                        "El alma es en cierto modo todas las cosas."
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        <em>De Anima (Acerca del Alma III, 8)</em> — Capacidad del *Nous* humano para asimilar cognoscitivamente todas las formas reales.
+                    </p>
+                </div>
+
+                <!-- Quote 4 -->
+                <div class="p-4 rounded-xl bg-slate-100 dark:bg-slate-900 border-l-4 border-amber-500 space-y-2">
+                    <p class="font-serif italic font-bold text-slate-900 dark:text-amber-300">
+                        « La vertu est un état d'esprit décisionnel, consistant en un juste milieu relatif à nous. »
+                    </p>
+                    <p class="text-slate-700 dark:text-slate-300 font-medium">
+                        "La virtud es un hábito electivo que consiste en un término medio relativo a nosotros (*Mesótes*)."
+                    </p>
+                    <p class="text-xs text-slate-500">
+                        <em>Éthique à Nicomaque (Ética a Nicómaco II, 6)</em> — Definición de la virtud moral como equilibrio guiado por la prudencia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DATA & LOGIC -->
+    <script>
+        // DATA STRUCTURES
+        const tickerQuotes = [
+            { fr: "« Tous les hommes désirent naturellement savoir »", es: "«Todos los hombres desean por naturaleza saber»", source: "Métaphysique, 980a" },
+            { fr: "« L'homme est par nature un animal politique »", es: "«El hombre es por naturaleza un animal político»", source: "Politique, 1253a" },
+            { fr: "« L'âme est en quelque sorte toutes les choses »", es: "«El alma es en cierto modo todas las cosas»", source: "De Anima, III, 8" },
+            { fr: "« La vertu est un juste milieu »", es: "«La virtud es un término medio relativo a nosotros»", source: "Éthique à Nicomaque" }
+        ];
+
+        let currentQuoteIndex = 0;
+
+        const timelineData = {
+            t1: {
+                year: "384 a.C.",
+                title: "Nacimiento en Estagira (Tracia/Calcídica)",
+                text: "Nace Aristóteles. Su padre, Nicómaco, era médico personal de Filipo II de Macedonia. Esta impronta familiar inculca en Aristóteles la pasión por la biología, las ciencias naturales y la observación directa."
+            },
+            t2: {
+                year: "367 – 347 a.C.",
+                title: "Veinte Años en la Academia de Platón",
+                text: "A los 17 años ingresa en la Academia en Atenas. Permanece allí 20 años hasta la muerte de Platón. Pese a desarrollar progresivamente sus propias ideas reales e inmanentes, mantuvo siempre un venerado respeto por Platón («un hombre a quien los malvados no tienen derecho de alabar»)."
+            },
+            t3: {
+                year: "347 – 335 a.C.",
+                title: "Exilio, Viajes y Tutoría de Alejandro Magno",
+                text: "Tras la muerte de Platón abandona Atenas. Reside en Assos y Mitilene investigando biología marina. En 343 a.C., Filipo II le encomienda la educación de su joven hijo Alejandro Magno en Pella."
+            },
+            t4: {
+                year: "335 – 323 a.C.",
+                title: "Fundación del Liceo y Escuela Peripatética",
+                text: "Regresa a Atenas bajo protección macedonia y funda el Liceo. Sus discípulos son llamados 'peripatéticos' por dialogar paseando (*peripatos*). Reúne la primera biblioteca e investigación empírica enciclopédica del mundo griego."
+            },
+            t5: {
+                year: "323 – 322 a.C.",
+                title: "Sentimiento Antimacedonio y Muerte en Calcis",
+                text: "Tras la muerte de Alejandro Magno, la ola antimacedonia en Atenas le acusa de impiedad. Exclama que abandona Atenas 'para que no peque dos veces contra la filosofía' (recordando la ejecución de Sócrates). Fallece en Calcis en 322 a.C."
+            }
+        };
+
+        const causesData = {
+            material: "<strong>Causa Material:</strong> La materia prima o secundaria de la que está hecho un ser. <em>Ejemplo:</em> El bronce de una estatua; la madera de la mesa; los huesos y órganos del animal.",
+            formal: "<strong>Causa Formal:</strong> La estructura, diseño o esencia (*esencia o principio vital*) que hace que algo sea lo que es. <em>Ejemplo:</em> La figura esculpida en la estatua; la psique/alma en el ser vivo.",
+            eficiente: "<strong>Causa Eficiente:</strong> El agente, fuerza o motor que inicia el cambio o la producción. <em>Ejemplo:</em> El escultor que esculpe el bronce; el padre que engendra al hijo; la lluvia que hace crecer la planta.",
+            final: "<strong>Causa Final (*Télos*):</strong> El propósito, meta o término último al que tiende la naturaleza del objeto. <em>Ejemplo:</em> Adornar el templo (estatua); convertirse en un árbol adulto floreciente (semilla)."
+        };
+
+        const mapNodeDetails = {
+            'ousia': "<strong>Sustancia (*Ousía*):</strong> El centro de la ontología aristotélica. Lo que existe por sí mismo y no en otro. Se divide en Sustancia Primera (individuo) y Segunda (esencia universal).",
+            'hilemorfismo': "<strong>Hilemorfismo:</strong> Toda sustancia física es un compuesto indisoluble de Materia (*Hylé*) y Forma (*Morphé*).",
+            'teleologia': "<strong>Teleología (*Télos*):</strong> La convicción de que todo en la naturaleza tiende espontáneamente hacia su propia perfección y fin propio.",
+            'causas': "<strong>Cuatro Causas:</strong> Causa Material, Formal, Eficiente y Final para explicar plenamente el cambio físico.",
+            'acto-potencia': "<strong>Acto y Potencia:</strong> Explicación del movimiento como actualización (*enérgeia*) de una capacidad potencial (*dýnamis*).",
+            'eudaimonia': "<strong>Eudaimonía:</strong> La felicidad como fin supremo de la vida humana, lograda mediante la actividad del alma conforme a la virtud.",
+            'abstraccion': "<strong>Abstracción (*Apháiresis*):</strong> Proceso epistemológico donde el Intelecto Agente despoja a las imágenes sensibles de su materia para captar el universal.",
+            'phronesis': "<strong>Phrónesis (Prudencia):</strong> La virtud intelectual práctica que determina el Término Medio justo en cada circunstancia.",
+            'polis': "<strong>Zōon Politikón:</strong> La naturaleza social del ser humano que solo en la Polis logra su autorrealización moral y autárquica."
+        };
+
+        const flashcardsData = [
+            { q: "¿Qué significa 'Ousía'?", a: "Sustancia. Es el ser fundamental, el sujeto concreto (Sustancia Primera) o su esencia universal (Sustancia Segunda)." },
+            { q: "¿En qué consiste el 'Hilemorfismo'?", a: "Doctrina que afirma que todas las cosas físicas son un compuesto indisoluble de Materia (*Hylé*) y Forma (*Morphé*)." },
+            { q: "¿Qué es la 'Entelecheia' / 'Enérgeia'?", a: "El Acto. La realización plena o estado completado de una potencia o capacidad en la naturaleza." },
+            { q: "¿Cómo se define la 'Eudaimonía'?", a: "Felicidad o plenitud vital. Es el fin supremo (*Télos*) de la ética aristotélica alcanzado mediante la virtud." },
+            { q: "¿Qué es la 'Phrónesis'?", a: "La Prudencia. Virtud dianoética práctica que permite deliberar rectamente sobre lo que es bueno para el hombre." },
+            { q: "¿Qué significa 'Zōon Politikón'?", a: "Animal Político / Social. Define al ser humano como naturalmente dotado para la convivencia en la Polis." },
+            { q: "¿Qué es la 'Epieíkeia'?", a: "Equidad. La virtud que permite rectificar y adaptar la ley general abstracta a la justicia del caso concreto." },
+            { q: "¿Qué es la 'Koiné Aísthesis'?", a: "Sentido Común. Facultad perceptiva interna que unifica las sensaciones de los 5 sentidos externos." }
+        ];
+
+        const quizData = [
+            {
+                q: "1. ¿Cómo se denomina el estilo expositivo y monológico introducido por Aristóteles en la filosofía?",
+                options: ["Diálogo dramático", "Tratado sistemático (*pragmateia*)", "Aforismo poético", "Mito alegórico"],
+                correct: 1,
+                explanation: "Aristóteles rompió con el diálogo platónico e instauró el tratado sistemático monológico (*pragmateia* o *akroastikoí lógoi*) como formato académico."
+            },
+            {
+                q: "2. ¿Cuál es la crítica fundamental de Aristóteles a las Ideas separadas de Platón?",
+                options: [
+                    "Que no existen conceptos universales.",
+                    "Que son incapaces de explicar el movimiento y generan la separación insalvable con las cosas físicas.",
+                    "Que fueron inventadas por los sofistas.",
+                    "Que los sentidos son la única realidad que existe."
+                ],
+                correct: 1,
+                explanation: "Aristóteles sostiene que las Ideas inmutables separadas no pueden causar ni explicar el cambio en el mundo físico sensible."
+            },
+            {
+                q: "3. En la teoría del Hilemorfismo, ¿qué representa la Forma (*Morphé*)?",
+                options: [
+                    "El componente material indeterminado.",
+                    "La causa accidental y contingente.",
+                    "La esencia universal e inmanente que organiza a la materia.",
+                    "La pura fantasía de la mente humana."
+                ],
+                correct: 2,
+                explanation: "La Forma es la causa formal y esencia que determina a la materia (*Hylé*) para constituir la sustancia concreta."
+            },
+            {
+                q: "4. ¿Cómo resuelve Aristóteles el dilema de Parménides sobre la imposibilidad del cambio?",
+                options: [
+                    "Negando la existencia del mundo físico.",
+                    "Aceptando que las cosas nacen desde la pura nada.",
+                    "Introduciendo el concepto de Ser en Potencia (*Dýnamis*) como paso al Acto (*Enérgeia*).",
+                    "Afirmando que el tiempo es una ilusión absoluta."
+                ],
+                correct: 2,
+                explanation: "El cambio no es la creación desde la nada, sino la actualización (*acto*) de una potencia previamente poseída por la sustancia."
+            },
+            {
+                q: "5. ¿Cómo define Aristóteles el tiempo en el Libro IV de su *Física*?",
+                options: [
+                    "Un recipiente infinito y absoluto creado por Dios.",
+                    "El número o medida del movimiento según el antes y el después.",
+                    "La velocidad constante del movimiento circular de las estrellas.",
+                    "Una ilusión pura del sentido común."
+                ],
+                correct: 1,
+                explanation: "El tiempo es la dimensión numerable del movimiento en relación necesaria con un alma que cuenta."
+            },
+            {
+                q: "6. En la Cosmología aristotélica, ¿de qué elemento están hechos los Cielos Supralunares?",
+                options: ["Tierra y Fuego combinados", "Ápeiron indeterminado", "Éter o Quintaesencia incorruptible", "Agua condensada"],
+                correct: 2,
+                explanation: "El mundo supralunar está constituido por el Éter o Quintaesencia, inmutable y dotado de movimiento circular perfecto."
+            },
+            {
+                q: "7. ¿Qué función cumple el Intelecto Agente (*Nous Poietikós*) en el proceso de conocimiento?",
+                options: [
+                    "Recibir pasivamente los datos de los sentidos externos.",
+                    "Actuar como luz intelectual que ilumina la imagen y abstrae la forma universal.",
+                    "Crear ideas falsas por medio de la imaginación.",
+                    "Gobernar los impulsos vegetativos del cuerpo."
+                ],
+                correct: 1,
+                explanation: "El Intelecto Agente separa la forma inteligible universal de la materia e imágenes sensibles particulares."
+            },
+            {
+                q: "8. ¿En qué consiste la virtud moral/ética según Aristóteles?",
+                options: [
+                    "Un conocimiento puramente teórico e innato del bien.",
+                    "Un hábito electivo (*Héxis*) que consiste en el Término Medio relativo a nosotros (*Mesótes*).",
+                    "La renuncia total a todos los bienes materiales y corporales.",
+                    "El cumplimiento ciego de las órdenes del tirano."
+                ],
+                correct: 1,
+                explanation: "La virtud ética es un hábito voluntario guiado por la prudencia para elegir el justo término medio entre dos excesos."
+            },
+            {
+                q: "9. ¿Qué función cumple la Equidad (*Epieíkeia*) en la Teoría de la Justicia?",
+                options: [
+                    "Sustituir el código de leyes por decisiones arbitrarias.",
+                    "Rectificar la rigidez de la ley general para adaptarla a la justicia del caso concreto.",
+                    "Repartir por igual todas las propiedades sin tener en cuenta el mérito.",
+                    "Castigar únicamente a los extranjeros."
+                ],
+                correct: 1,
+                explanation: "La equidad adapta el propósito de la ley universal a las particularidades insólitas de casos reales."
+            },
+            {
+                q: "10. ¿Por qué el ser humano es definido como 'Zōon Politikón' (Animal Político)?",
+                options: [
+                    "Porque le gusta participar en elecciones democráticas.",
+                    "Porque la sociedad es una convención artificial nacida de un contrato.",
+                    "Porque por su propia naturaleza necesita la Polis autárquica para realizarse moralmente.",
+                    "Porque los hombres no pueden vivir en familias."
+                ],
+                correct: 2,
+                explanation: "El ser humano es social por naturaleza, alcanzando solo en la Polis la autosuficiencia (*autarkeia*) y la vida buena."
+            }
+        ];
+
+        let quizUserAnswers = {};
+
+        // INITIALIZATION
+        window.onload = function() {
+            showTimelineDetail('t1');
+            selectCause('material');
+            renderFlashcards();
+            renderQuiz();
+        };
+
+        // UI TABS SWITCHING
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active-tab', 'bg-terracotta-500', 'text-white', 'font-bold');
+                btn.classList.add('text-slate-600', 'dark:text-slate-400');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('nav-' + tabId);
+            activeBtn.classList.add('active-tab', 'bg-terracotta-500', 'text-white', 'font-bold');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // DARK MODE TOGGLE
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = "fa-solid fa-moon text-base";
+            } else {
+                html.classList.add('dark');
+                icon.className = "fa-solid fa-sun text-base text-greekGold-400";
+            }
+        }
+
+        // MODAL TOGGLE
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.toggle('hidden');
+        }
+
+        // TICKER QUOTE ROTATOR
+        function rotateQuote() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % tickerQuotes.length;
+            const q = tickerQuotes[currentQuoteIndex];
+            const el = document.getElementById('ticker-quote');
+            el.style.opacity = 0;
+            setTimeout(() => {
+                el.innerHTML = `${q.fr} — ${q.es} (${q.source})`;
+                el.style.opacity = 1;
+            }, 300);
+        }
+
+        // TIMELINE DETAIL RENDER
+        function showTimelineDetail(id) {
+            document.querySelectorAll('.timeline-btn').forEach(btn => btn.classList.remove('border-terracotta-500', 'bg-terracotta-500/10'));
+            document.getElementById('btn-' + id).classList.add('border-terracotta-500', 'bg-terracotta-500/10');
+
+            const item = timelineData[id];
+            const display = document.getElementById('timeline-display');
+            display.innerHTML = `
+                <div class="space-y-2">
+                    <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-terracotta-500 text-white">${item.year}</span>
+                    <h4 class="text-base font-serif font-bold text-slate-900 dark:text-greekGold-400">${item.title}</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${item.text}</p>
+                </div>
+            `;
+        }
+
+        // FOUR CAUSES INTERACTIVE SELECTOR
+        function selectCause(type) {
+            ['material', 'formal', 'eficiente', 'final'].forEach(t => {
+                const btn = document.getElementById(`cause-btn-${t}`);
+                if (t === type) {
+                    btn.classList.add('border-terracotta-500', 'bg-terracotta-500/10');
+                    btn.classList.remove('border-transparent');
+                } else {
+                    btn.classList.remove('border-terracotta-500', 'bg-terracotta-500/10');
+                    btn.classList.add('border-transparent');
+                }
+            });
+            document.getElementById('cause-detail-display').innerHTML = causesData[type];
+        }
+
+        // MAP NODE DETAIL
+        function showMapNodeDetail(key) {
+            document.getElementById('map-node-detail').innerHTML = mapNodeDetails[key] || "Detalle del nodo seleccionado.";
+        }
+
+        // FLASHCARDS RENDER
+        function renderFlashcards() {
+            const container = document.getElementById('flashcards-container');
+            container.innerHTML = flashcardsData.map((card, i) => `
+                <div onclick="this.classList.toggle('flipped')" class="flip-card h-48 cursor-pointer">
+                    <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-sm">
+                        <!-- Front -->
+                        <div class="flip-card-front absolute inset-0 glass-panel p-5 rounded-2xl border border-terracotta-500/30 flex flex-col justify-between">
+                            <span class="text-[10px] font-mono font-bold uppercase text-terracotta-500">Término ${i+1}</span>
+                            <p class="font-serif font-bold text-sm text-slate-900 dark:text-slate-100">${card.q}</p>
+                            <span class="text-[10px] text-slate-400 flex items-center gap-1">
+                                <i class="fa-solid fa-rotate"></i> Clic para voltear
+                            </span>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back absolute inset-0 bg-slate-900 text-greekGold-400 p-5 rounded-2xl border border-terracotta-500 flex flex-col justify-between">
+                            <span class="text-[10px] font-mono font-bold uppercase text-terracotta-400">Definición Filosófica</span>
+                            <p class="text-xs text-slate-200 leading-relaxed">${card.a}</p>
+                            <span class="text-[10px] text-terracotta-400">Volver a voltear</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // QUIZ RENDER & CHECK
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = quizData.map((item, qIdx) => `
+                <div class="p-5 rounded-xl bg-slate-100 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 space-y-3">
+                    <p class="font-serif font-bold text-sm text-slate-900 dark:text-greekGold-400">${item.q}</p>
+                    <div class="space-y-2">
+                        ${item.options.map((opt, oIdx) => `
+                            <button onclick="selectQuizOption(${qIdx}, ${oIdx})" id="q-opt-${qIdx}-${oIdx}" class="w-full text-left p-3 rounded-lg bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-terracotta-500 text-xs text-slate-700 dark:text-slate-300 transition">
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="quiz-explain-${qIdx}" class="hidden p-3 rounded-lg text-xs leading-relaxed font-medium"></div>
+                </div>
+            `).join('');
+        }
+
+        function selectQuizOption(qIdx, oIdx) {
+            quizUserAnswers[qIdx] = oIdx;
+            const q = quizData[qIdx];
+            const explainEl = document.getElementById(`quiz-explain-${qIdx}`);
+
+            q.options.forEach((_, idx) => {
+                const btn = document.getElementById(`q-opt-${qIdx}-${idx}`);
+                btn.className = "w-full text-left p-3 rounded-lg bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 transition";
+            });
+
+            const selectedBtn = document.getElementById(`q-opt-${qIdx}-${oIdx}`);
+            explainEl.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-500', 'bg-red-500/10', 'text-red-500');
+
+            if (oIdx === q.correct) {
+                selectedBtn.classList.add('border-emerald-500', 'bg-emerald-500/10', 'font-bold');
+                explainEl.classList.add('bg-emerald-500/10', 'text-emerald-600', 'dark:text-emerald-400');
+                explainEl.innerHTML = `<i class="fa-solid fa-circle-check"></i> <strong>¡Correcto!</strong> ${q.explanation}`;
+            } else {
+                selectedBtn.classList.add('border-red-500', 'bg-red-500/10');
+                explainEl.classList.add('bg-red-500/10', 'text-red-600', 'dark:text-red-400');
+                explainEl.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> <strong>Incorrecto.</strong> ${q.explanation}`;
+            }
+
+            updateQuizScore();
+        }
+
+        function updateQuizScore() {
+            let score = 0;
+            Object.keys(quizUserAnswers).forEach(qIdx => {
+                if (quizUserAnswers[qIdx] === quizData[qIdx].correct) {
+                    score++;
+                }
+            });
+            document.getElementById('quiz-score-badge').innerText = `Puntuación: ${score} / ${quizData.length}`;
+        }
+
+        function resetQuiz() {
+            quizUserAnswers = {};
+            document.getElementById('quiz-score-badge').innerText = `Puntuación: 0 / ${quizData.length}`;
+            renderQuiz();
+        }
+
+        // GLOBAL SEARCH BAR FILTER
+        function handleNotesSearch() {
+            const query = document.getElementById('notes-search-input').value.toLowerCase().trim();
+            const panel = document.getElementById('search-results-panel');
+            const content = document.getElementById('search-results-content');
+
+            if (query.length < 2) {
+                panel.classList.add('hidden');
+                return;
+            }
+
+            const searchableContent = [
+                { title: "Hilemorfismo (Materia y Forma)", section: "1. Metafísica", text: "Compuesto de Hylé (materia) y Morphé (forma) indisoluble en las sustancias físicas.", tab: "tab-1" },
+                { title: "Cuatro Causas", section: "1. Metafísica", text: "Causa Material, Formal, Eficiente y Final (Télos).", tab: "tab-1" },
+                { title: "Acto y Potencia", section: "1. Metafísica", text: "Solución a Parménides. El movimiento es la actualización de una potencia.", tab: "tab-1" },
+                { title: "El Tiempo y el Ahora", section: "1. Metafísica / Física", text: "Número del movimiento según el antes y el después, medido por el alma.", tab: "tab-1" },
+                { title: "El Lugar (Tópos) y el Vacío", section: "1. Metafísica / Física", text: "Límite inmóvil primero del cuerpo que contiene. Rechazo del vacío (horror vacui).", tab: "tab-1" },
+                { title: "Abstracción y Nous Poietikós", section: "2. Epistemología", text: "Intelecto agente que despoja la forma universal de las imágenes sensibles.", tab: "tab-2" },
+                { title: "Eudaimonía (Felicidad)", section: "4. Ética", text: "Fin supremo alcanzado por la actividad del alma conforme a la virtud.", tab: "tab-4" },
+                { title: "Término Medio (Mesótes)", section: "4. Ética", text: "Virtud del carácter entre el defecto y el exceso determinable por la prudencia.", tab: "tab-4" },
+                { title: "Zōon Politikón", section: "5. Política", text: "El hombre es por naturaleza un animal político dotado de palabra para vivir en la Polis.", tab: "tab-5" },
+                { title: "Formas de Gobierno (Rectas vs Desviadas)", section: "5. Política", text: "Monarquía, Aristocracia, Politeia frente a Tiranía, Oligarquía y Democracia.", tab: "tab-5" }
+            ];
+
+            const matches = searchableContent.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.text.toLowerCase().includes(query) ||
+                item.section.toLowerCase().includes(query)
+            );
+
+            if (matches.length === 0) {
+                content.innerHTML = `<p class="text-slate-500 italic">No se encontraron coincidencias para "${query}".</p>`;
+            } else {
+                content.innerHTML = matches.map(m => `
+                    <div onclick="switchTab('${m.tab}')" class="p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-terracotta-500 cursor-pointer transition">
+                        <span class="text-[10px] font-mono font-bold text-terracotta-500 uppercase">${m.section}</span>
+                        <h4 class="font-bold text-slate-900 dark:text-greekGold-400 text-sm">${m.title}</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-300">${m.text}</p>
+                    </div>
+                `).join('');
+            }
+
+            panel.classList.remove('hidden');
+        }
+
+        function clearSearch() {
+            document.getElementById('notes-search-input').value = "";
+            document.getElementById('search-results-panel').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
